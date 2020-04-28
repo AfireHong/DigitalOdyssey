@@ -71,15 +71,18 @@
                     },
                     success:function (result) {
                         console.log(result);
-                        // obj = JSON.parse(result);
-                        // if(!obj.code){
-                        //     layer.msg('手机号或密码错误！');
-                        // }else{
-                        //     layer.msg('登录成功！',{ shift:-1, time: 1000 },function () {
-                        //         document.location.href='index.php';
-                        //     });
-                            
-                        // }
+                        obj = JSON.parse(result);
+                        if(obj.code == 1){
+                            layer.msg('账户已存在！请直接登录哦~');
+                            return;
+                        }else if(obj.code == 2){
+                            layer.msg('注册成功！正在跳转到登录页',{ shift:-1, time: 1000 },function () {
+                                document.location.href='login.php';
+                            });
+                        }else{
+                            layer.msg('注册失败，多次看到这条消息请联系我们！');
+                            return;
+                        }
                     },
                     error:function () {
                         alert(msg);

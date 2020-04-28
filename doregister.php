@@ -11,7 +11,6 @@
     $num = mysqli_num_rows($res1);
     $power = 4;
     $status = 1;
-    echo $username.$password.$tel.$email;
     if($num){
         $responseDate["code"] = 1;
         $responseDate["msg"] = "账户已存在";
