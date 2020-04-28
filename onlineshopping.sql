@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 28/04/2020 09:48:16
+ Date: 28/04/2020 19:57:50
 */
 
 SET NAMES utf8mb4;
@@ -77,21 +77,22 @@ CREATE TABLE `orders`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `password` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `tel` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `sex` tinyint(1) NOT NULL,
-  `age` int(3) NOT NULL,
+  `sex` tinyint(1) NULL DEFAULT NULL,
+  `age` int(3) NULL DEFAULT NULL,
   `status` tinyint(1) NOT NULL,
   `power` tinyint(1) NOT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100003 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (100001, 'test', '123', '13012345678', '123@qq.com', 1, 1, 1, 4);
+INSERT INTO `users` VALUES (100002, 'teso', 'qwer', '13012345670', '123', NULL, NULL, 1, 4);
 
 SET FOREIGN_KEY_CHECKS = 1;
