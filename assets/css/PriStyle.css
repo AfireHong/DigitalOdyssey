@@ -1,0 +1,74 @@
+.slide {
+	margin-top: 30px;
+}
+
+.nav-shadow {
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.centered {
+	text-align: center;
+}
+
+.foot_title {
+	margin-bottom: 40px;
+}
+
+#tick-svg {
+	width: 400px;
+	height: 400px;
+}
+
+#tick-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+#tick-circle {
+	fill: none;
+	stroke: rgb(33, 233, 14);
+	stroke-width: 20;
+	stroke-dasharray: 1194;
+	/* 190*2*PI=1194 */
+	stroke-dashoffset: 1194;
+	stroke-linecap: round;
+}
+
+#header-pay {
+	display: none;
+}
+
+#goto-pay {
+	display: none;
+}
+
+#tick-poly {
+	stroke-dasharray: 350;
+	stroke-dashoffset: 350;
+	fill: none;
+	stroke: rgb(33, 233, 14);
+	stroke-width: 20;
+}
+
+@keyframes circle {
+	from {
+		stroke-dashoffset: 1194;
+	}
+
+	to {
+		stroke-dashoffset: 2388;
+	}
+}
+
+@keyframes tick {
+	from {
+		stroke-dashoffset: 350;
+	}
+
+	to {
+		stroke-dashoffset: 0;
+	}
+}
