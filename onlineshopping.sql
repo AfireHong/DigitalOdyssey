@@ -92,7 +92,7 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (100001, 'test', '123', '13012345678', '123@qq.com', 1, 1, 1, 4);
-INSERT INTO `users` VALUES (100002, 'teso', 'qwer', '13012345670', '123', NULL, NULL, 1, 4);
+INSERT INTO `users` VALUES (100001, 'test', '202CB962AC59075B964B07152D234B70', '13012345678', '123@qq.com', 1, 1, 1, 4);
+INSERT INTO `users` VALUES (100002, 'teso', '202CB962AC59075B964B07152D234B70', '13012345670', '123', NULL, NULL, 1, 4);
 
 SET FOREIGN_KEY_CHECKS = 1;
