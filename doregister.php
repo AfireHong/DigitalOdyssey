@@ -3,7 +3,8 @@
     $responseDate = array("code" => 0, "msg" => "", "uid"=>"");
     //echo json_encode($responseDate);
     $username = $_POST['name'];
-    $password = $_POST['pwd'];
+    $passwordPre = $_POST['pwd'];
+    $password = md5($passwordPre);
     $tel = $_POST['tel'];
     $email = $_POST['email'];
     $sql1 = "SELECT * FROM users WHERE username='{$username}' OR tel = '{$tel}'";

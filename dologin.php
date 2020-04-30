@@ -1,7 +1,8 @@
 <?php
     include_once 'conn.php';
     $tel = $_POST['tel'];
-    $pwd = $_POST['pwd'];
+    $pwdPre = $_POST['pwd'];
+    $pwd = md5($pwdPre);
     //echo $pwd;
     $responseDate = array("code" => 0, "msg" => "", "uid"=>"");
     $sql = "SELECT * FROM users where tel='{$tel}' AND password='{$pwd}'";
