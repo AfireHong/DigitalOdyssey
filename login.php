@@ -1,6 +1,7 @@
 <?php
     include 'header.php';
     if(!empty($_SESSION['uid'])){
+        include '404.php';
         exit;
     }
 ?>
