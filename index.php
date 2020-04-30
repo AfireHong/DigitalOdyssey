@@ -77,7 +77,56 @@
                 </div>
         </div>
     </section>
-    <section class="clean-block clean-info dark">
+    <section class="clean-block clean-gallery dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">今日最热</h2>
+                <p>
+                    精选每日最热产品
+                </p>
+            </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image4.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image4.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" /></a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
+                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!--
+        <section class="clean-block clean-info dark">
                 <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">加入会员</h2>
@@ -102,6 +151,8 @@
                 </div>
             </div>
     </section>
+-->
+<!--
     <section class="clean-block clean-pricing dark">
             <div class="container">
                 <div class="block-heading">
@@ -203,4 +254,5 @@
                 </div>
             </div>
     </section>
+-->
     <?php include 'footer.php';?>
