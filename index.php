@@ -39,40 +39,64 @@
             </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image4.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image4.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image6.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image5.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image4.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image4.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image6.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image5.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg">
+                          <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg">
+                          <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
                     </div>
                 </div>
         </div>
@@ -87,40 +111,64 @@
             </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image4.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image4.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image6.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image5.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image4.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image4.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image4.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image6.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image5.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" />
+                        </a>
                     </div>
                     <div class="col-md-6 col-lg-4 item">
-                        <a class="lightbox" href="assets/img/scenery/image1.jpg"><img
-                                class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" /></a>
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image6.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image6.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image5.jpg">
+                          <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image5.jpg" />
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="assets/img/scenery/image1.jpg">
+                            <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
+                        </a>
                     </div>
                 </div>
         </div>
