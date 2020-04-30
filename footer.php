@@ -5,36 +5,28 @@
                         <i class="icon-star icon"></i>
                         <h4>正规渠道，正品保障</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Nunc quam urna, dignissim nec
-                            auctor in, mattis vitae leo.
+                            所有产品皆来自原厂，正规联保
                         </p>
                     </div>
                     <div class="col-md-5 feature-box">
                         <i class="icon-pencil icon"></i>
                         <h4>放心购物，货到付款</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Nunc quam urna, dignissim nec
-                            auctor in, mattis vitae leo.
+                            支持货到付款，省心快购
                         </p>
                     </div>
                     <div class="col-md-5 feature-box">
                         <i class="icon-screen-smartphone icon"></i>
                         <h4>上门退换，购物无忧</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Nunc quam urna, dignissim nec
-                            auctor in, mattis vitae leo.
+                            7天无条件退款，上门退换，让您无忧购物
                         </p>
                     </div>
                     <div class="col-md-5 feature-box">
                         <i class="icon-refresh icon"></i>
                         <h4>625城市，次日直达</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Nunc quam urna, dignissim nec
-                            auctor in, mattis vitae leo.
+                            全国625城市上万个快递点，次日直达
                         </p>
                     </div>
                 </div>
