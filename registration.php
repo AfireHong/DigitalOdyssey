@@ -9,11 +9,27 @@
                     <p>欢迎来到数码奥德赛</p>
                 </div>
                 <form>
-                    <div class="form-group"><label for="name">用户名</label><input class="form-control item" type="text" id="name"></div>
-                    <div class="form-group"><label for="email">手机号</label><input class="form-control item" type="tel" id="tel"></div>
-                    <div class="form-group"><label for="password">密码</label><input class="form-control item" type="password" id="password"></div>
-                    <div class="form-group"><label for="password">再次输入密码</label><input class="form-control item" type="password" id="repassword"></div>
-                    <div class="form-group"><label for="email">邮箱</label><input class="form-control item" type="email" id="email"></div>
+                    <div class="form-group">
+                        <label for="name">用户名</label>
+                        <input class="form-control item" type="text" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">手机号</label>
+                        <input class="form-control item" type="tel" id="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input class="form-control item" type="password" id="password">
+                        <p id="passwordSet" class="text-info">密码最低长度8个字符，应至少包含一个大写字母，<br>一个小写字母和一个数字</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">再次输入密码</label>
+                        <input class="form-control item" type="password" id="repassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱</label>
+                        <input class="form-control item" type="email" id="email">
+                    </div>
                     <button class="btn btn-primary btn-block" type="button" id="sub-btn">注册</button>
                     </form>
             </div>
@@ -58,7 +74,18 @@
                         layer.msg('邮箱不能为空！');e
                         return;
                     }
-
+                    //邮箱格式合法性验证
+                    var emailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+                    if(!emailReg.test(email)){
+                        layer.msg('请输入正确的合法邮箱！');
+                        return;
+                    }
+                    //密码合法性验证  最少八个字符，至少一个大写字母，一个小写字母和一个数字
+                    var passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+                    if(!passwordReg.test(password)){
+                        layer.msg("请按要求设置符合安全强度的密码！");
+                        return;
+                    }
                     //ajax提交表单
                     $.ajax({
                     method: "post",

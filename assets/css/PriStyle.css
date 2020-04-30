@@ -72,3 +72,12 @@
 		stroke-dashoffset: 0;
 	}
 }
+
+/*当选择密码输入框时显示提示文字*/
+#passwordSet {
+	display: none;
+}
+
+#password:focus+p {
+	display: block;
+}
