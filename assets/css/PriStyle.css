@@ -1,3 +1,11 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+
 .slide {
 	margin-top: 30px;
 }
@@ -81,3 +89,34 @@
 #password:focus+p {
 	display: block;
 }
+
+/* 主页产品列表相关样式开始 */
+.product-show-container{
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.075);
+	text-align: center;
+}
+.product-show-container:hover{
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.product-show-container a{
+	color: #2c3e50;
+}
+.product-show-container a:hover{
+	color: #e74c3c;
+	text-decoration: none;
+}
+.product-show-info p{
+	margin-bottom: 0;
+	margin-top: 1rem;
+	font-size: 0.9rem;
+}
+.product-img img{
+	width: 300px;
+	height: 220px;
+	margin-top: 20px;
+}
+.product-price p{
+	font-size: 1.5rem;
+	color: #c0392b;
+}
+/* 主页产品列表相关样式结束 */
