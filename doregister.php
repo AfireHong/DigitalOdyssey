@@ -10,15 +10,13 @@
     $sql1 = "SELECT * FROM users WHERE username='{$username}' OR tel = '{$tel}'";
     $res1 = $mySQLi->query($sql1);
     $num = mysqli_num_rows($res1);
-    $power = 4;
-    $status = 1;
     if($num){
         $responseDate["code"] = 1;
         $responseDate["msg"] = "账户已存在";
         echo json_encode($responseDate);
         exit;
     }else{
-        $sql2 = "INSERT INTO users (username, password, tel, email, status, power) VALUES ('{$username}', '$password', '{$tel}', '$email', '{$status}', '{$power}')";
+        $sql2 = "INSERT INTO users (username, password, tel, email) VALUES ('{$username}', '$password', '{$tel}', '$email')";
         $res2 = $mySQLi->query($sql2);
         if($res2){
             $responseDate["code"] = 2;
