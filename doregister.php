@@ -7,7 +7,7 @@
     $password = md5($passwordPre);
     $tel = $_POST['tel'];
     $email = $_POST['email'];
-    $sql1 = "SELECT * FROM users WHERE username='{$username}' OR tel = '{$tel}'";
+    $sql1 = "SELECT * FROM users WHERE username='{$username}' OR tel = '{$tel}' OR email = '{$email}' ";
     $res1 = $mySQLi->query($sql1);
     $num = mysqli_num_rows($res1);
     if($num){
@@ -30,4 +30,3 @@
             exit;
         }
     }
-    //TODO: 邮箱重复性验证
