@@ -6,11 +6,11 @@
     //echo $pwd;
     $responseDate = array("code" => 0, "msg" => "", "uid"=>"");
     $sql = "SELECT * FROM users where tel='{$tel}' AND password='{$pwd}'";
-    $reslut = $mySQLi->query($sql);
-    if(mysqli_num_rows($reslut)){
+    $result = $mySQLi->query($sql);
+    if(mysqli_num_rows($result)){
         $responseDate['code'] = 1;
         $responseDate['msg'] = '登录成功';
-        $list = mysqli_fetch_array($reslut);
+        $list = mysqli_fetch_array($result);
         $responseDate['uid'] = $list['user_id'];
         $_SESSION['uid'] = $list['user_id'];
         echo json_encode($responseDate);
