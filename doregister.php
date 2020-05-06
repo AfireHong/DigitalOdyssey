@@ -1,4 +1,9 @@
 <?php
+    if($_SERVER['HTTP_REFERER'] == ""){
+        include 'header.php';
+        include '404.php';
+        exit;
+    }
     include_once 'conn.php';
     $responseDate = array("code" => 0, "msg" => "", "uid"=>"");
     //echo json_encode($responseDate);
