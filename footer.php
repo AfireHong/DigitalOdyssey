@@ -1,4 +1,4 @@
-<section class="clean-block features">
+<section class="clean-block2 features">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-5 feature-box">
