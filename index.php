@@ -1,5 +1,14 @@
 
-<?php include 'header.php'; ?>
+<?php 
+    include 'header.php'; 
+    //推荐商品信息
+    $sql_rec = "SELECT g.goods_id, g.goods_name, g.description, g.max_price, i.img_url FROM goods g, img i WHERE g.goods_id=i.goods_id AND g.is_rec='1' AND g.is_up='1' LIMIT 9";
+    $rec_res = $mySQLi->query($sql_rec);
+    //热门商品信息
+    $sql_hot = "SELECT g.goods_id, g.goods_name, g.description, g.max_price, i.img_url FROM goods g, img i WHERE g.goods_id=i.goods_id AND g.is_hot='1' AND g.is_up='1' LIMIT 9";
+    $hot_res = $mySQLi->query($sql_hot);
+
+?>
 
 
 <main class="page landing-page">
@@ -40,35 +49,45 @@
                 </p>
             </div>
                 <div class="row">
-                    <?php for($i=1;$i<=9;$i++){?>
+                    <?php
+                    //循环输出商品信息 
+                        if(!empty($rec_res)):
+                            while ($val = mysqli_fetch_array($rec_res)):
+                    ?>
 
                         <div class="col-md-6 col-lg-4 item ">
                             <div class="product-show-container">
                                 <div class="product-img">
-                                    <a href="#">
-                                        <img src="assets/img/scenery/image2.jpg" alt="">
+                                    <a href="product-page.php?gd_id=<?php echo $val['goods_id']; ?>" target="_blank">
+                                        <img src="assets/img/goods_img/<?php echo $val['img_url']; ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="product-show-info">
-                                    <a href="">
-                                        <p>华硕(ASUS) 天选 15.6英寸游戏笔记本电脑</p>
-                                        <p>新锐龙 7nm 8核 R7-4800H 8G 512GSSD GTX1650Ti 4G 144Hz</p>
+                                    <a href="product-page.php?gd_id=<?php echo $val['goods_id']; ?>" target="_blank">
+                                        <p>
+                                            <?php
+                                                echo $val['goods_name'];
+                                            ?>
+                                        </p>
+                                        <p>
+                                            <?php
+                                                echo $val['description'];
+                                            ?>
+                                        </p>
                                     </a>
                                 </div>
                                 <div class="product-price">
-                                    <p>￥6099</p>
+                                    <p>
+                                            <?php
+                                                echo '￥'.$val['max_price'];
+                                            ?>
+                                    </p>
                                 </div>
                             </div>
-                                <!-- 这个链接传参到商品介绍页，参数是商品id，在新窗口打开 ，脚本开头从数据库读取该模块数据数组 -->
-                                <!-- <a class="lightbox" href="product-page.php?<?php/*这里是商品id*/?>">
-                                    <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
-                                    <div class="product-show ">
-                                        <p>华硕</p>
-                                    </div>
-                                </a> -->
                                 
                         </div>
-                    <?php } ?>
+                        <?php endwhile;?>
+                        <?php endif;?>
                 </div>
         </div>
     </section>
@@ -81,36 +100,46 @@
                 </p>
             </div>
             <div class="row">
-                <?php for($i=1;$i<=9;$i++){?>
+                    <?php
+                    //循环输出商品信息 
+                        if(!empty($hot_res)):
+                            while ($val = mysqli_fetch_array($hot_res)):
+                    ?>
 
-                    <div class="col-md-6 col-lg-4 item ">
-                        <div class="product-show-container">
-                            <div class="product-img">
-                                <a href="#">
-                                    <img src="assets/img/scenery/image2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-show-info">
-                                <a href="">
-                                    <p>华硕(ASUS) 天选 15.6英寸游戏笔记本电脑</p>
-                                    <p>新锐龙 7nm 8核 R7-4800H 8G 512GSSD GTX1650Ti 4G 144Hz</p>
-                                </a>
-                            </div>
-                            <div class="product-price">
-                                <p>￥6099</p>
-                            </div>
-                        </div>
-                            <!-- 这个链接传参到商品介绍页，参数是商品id，在新窗口打开 ，脚本开头从数据库读取该模块数据数组 -->
-                            <!-- <a class="lightbox" href="product-page.php?<?php/*这里是商品id*/?>">
-                                <img class="img-thumbnail img-fluid image" src="assets/img/scenery/image1.jpg" />
-                                <div class="product-show ">
-                                    <p>华硕</p>
+                        <div class="col-md-6 col-lg-4 item ">
+                            <div class="product-show-container">
+                                <div class="product-img">
+                                    <a href="product-page.php?gd_id=<?php echo $val['goods_id']; ?>" target="_blank">
+                                        <img src="assets/img/goods_img/<?php echo $val['img_url']; ?>" alt="">
+                                    </a>
                                 </div>
-                            </a> -->
-                            
-                    </div>
-                <?php } ?>
-            </div>
+                                <div class="product-show-info">
+                                    <a href="product-page.php?gd_id=<?php echo $val['goods_id']; ?>">
+                                        <p>
+                                            <?php
+                                                echo $val['goods_name'];
+                                            ?>
+                                        </p>
+                                        <p>
+                                            <?php
+                                                echo $val['description'];
+                                            ?>
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="product-price">
+                                    <p>
+                                            <?php
+                                                echo '￥'.$val['max_price'];
+                                            ?>
+                                    </p>
+                                </div>
+                            </div>
+                                
+                        </div>
+                        <?php endwhile;?>
+                        <?php endif;?>
+                </div>
         </div>
     </section>
     <!--

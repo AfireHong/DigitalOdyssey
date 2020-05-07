@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 07/05/2020 10:45:08
+ Date: 07/05/2020 14:19:26
 */
 
 SET NAMES utf8mb4;
@@ -32,22 +32,14 @@ CREATE TABLE `address`  (
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of address
--- ----------------------------
-
--- ----------------------------
 -- Table structure for cate
 -- ----------------------------
 DROP TABLE IF EXISTS `cate`;
 CREATE TABLE `cate`  (
   `cate_id` int(11) NOT NULL COMMENT '分类id',
-  `cate_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '分类名',
+  `cate_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '分类名',
   PRIMARY KEY (`cate_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of cate
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for goods
@@ -57,36 +49,29 @@ CREATE TABLE `goods`  (
   `goods_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品id',
   `goods_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '商品名',
   `cate_id` int(10) NULL DEFAULT NULL COMMENT '分类id',
-  `brand` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '品牌',
-  `stock` int(11) NOT NULL COMMENT '库存',
-  `is_hot` tinyint(1) NULL DEFAULT 0 COMMENT '是否热卖 0否 1是',
+  `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '品牌',
+  `stock` int(11) NULL DEFAULT NULL COMMENT '库存',
   `max_price` decimal(10, 2) NOT NULL COMMENT '最高价格,默认显示最高价格',
-  `min_price` decimal(10, 2) NOT NULL COMMENT '最低价格',
-  `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '描述',
-  `is_rec` tinyint(1) NULL DEFAULT NULL COMMENT '是否推荐 0否 1是',
-  `is_up` tinyint(1) NULL DEFAULT NULL COMMENT '是否上架 0否 1是',
+  `min_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '最低价格',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '描述',
+  `is_hot` tinyint(1) NULL DEFAULT 0 COMMENT '是否热卖 0否 1是',
+  `is_rec` tinyint(1) NULL DEFAULT 0 COMMENT '是否推荐 0否 1是',
+  `is_up` tinyint(1) NULL DEFAULT 1 COMMENT '是否上架 0否 1是',
   `status` tinyint(1) NULL DEFAULT 0 COMMENT '是否放入回收站 0否 1是',
   PRIMARY KEY (`goods_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of goods
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 100092 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for img
 -- ----------------------------
 DROP TABLE IF EXISTS `img`;
 CREATE TABLE `img`  (
-  `img_id` int(255) NOT NULL COMMENT '图片id',
-  `img_url` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '图片名',
+  `img_id` int(255) NOT NULL AUTO_INCREMENT COMMENT '图片id',
+  `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片地址',
   `goods_id` int(10) NULL DEFAULT NULL COMMENT '商品id',
+  `display` tinyint(1) NULL DEFAULT 1 COMMENT '是否显示，1显示，0不显示',
   PRIMARY KEY (`img_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of img
--- ----------------------------
+) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for orders
@@ -106,10 +91,6 @@ CREATE TABLE `orders`  (
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of orders
--- ----------------------------
-
--- ----------------------------
 -- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
@@ -125,11 +106,5 @@ CREATE TABLE `users`  (
   `power` tinyint(1) NOT NULL DEFAULT 0 COMMENT '权力 0普通用户 1管理员',
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 100003 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of users
--- ----------------------------
-INSERT INTO `users` VALUES (100001, 'test', '202CB962AC59075B964B07152D234B70', '13012345678', '123@qq.com', 1, 1, 1, 0);
-INSERT INTO `users` VALUES (100002, 'teso', '202CB962AC59075B964B07152D234B70', '13012345670', '123', NULL, NULL, 1, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
