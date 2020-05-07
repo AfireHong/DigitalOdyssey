@@ -1,31 +1,46 @@
 <?php
     include 'header.php';
+    $gd_id = $_GET['gd_id'];
+    //如果不带参数，输出错误页面
+    if(empty($gd_id)){
+        include '404.php';
+        exit;
+    }
+    //从数据库拉取
+    $gd_info_sql = "SELECT goods.goods_name, goods.max_price, goods.description, img.img_url FROM goods,img WHERE goods.goods_id = '{$gd_id}' AND img.goods_id = '{$gd_id}'";
+    $gd_info_res = $mySQLi->query($gd_info_sql);
+    //如果数据库无数据，同样输出错误页，分开判断减轻服务器压力
+    if(empty($gd_info_res)){
+        include '404.php';
+        exit;
+    }
+    $val = mysqli_fetch_array($gd_info_res);
 ?>
     <main class="page product-page">
         <section class="clean-block clean-product dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Product Page</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <h2 class="text-info">产品信息</h2>
+                    <p>数码奥德赛，懂你最想要的！</p>
                 </div>
                 <div class="block-content">
                     <div class="product-info">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="gallery">
-                                    <div class="sp-wrap"><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a></div>
+                                <div class="img_info">
+                                    <a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/goods_img/<?php echo $val['img_url']; ?>"></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h3>Lorem Ipsum</h3>
+                                    <h3><?php echo $val['goods_name']?></h3>
                                     <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                     <div class="price">
-                                        <h3>$300.00</h3>
-                                    </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>Add to Cart</button>
+                                        <h3><?php echo '￥'.$val['max_price']?></h3>
+                                    </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>加入购物车</button>
                                     <div class="summary">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec augue nunc, pretium at augue at, convallis pellentesque ipsum. Vestibulum diam risus, sagittis at fringilla at, pulvinar vel risus. Vestibulum dignissim
-                                            eu nulla eu imperdiet. Morbi mollis tellus a nunc vestibulum consequat. Quisque tristique elit et nibh dapibus sodales. Nam sollicitudin a urna sed iaculis.</p>
+                                        <h4>详细信息:</br>
+                                        <?php echo $val['description']?></h4>
                                     </div>
                                 </div>
                             </div>
@@ -34,9 +49,9 @@
                     <div class="product-info">
                         <div>
                             <ul class="nav nav-tabs" id="myTab">
-                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" id="description-tab" href="#description">Description</a></li>
-                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="specifications-tabs" href="#specifications">Specifications</a></li>
-                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="reviews-tab" href="#reviews">Reviews</a></li>
+                                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" id="description-tab" href="#description">描述</a></li>
+                                <!-- <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="specifications-tabs" href="#specifications">Specifications</a></li> -->
+                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="reviews-tab" href="#reviews">反馈</a></li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane active fade show description" role="tabpanel" id="description">
@@ -44,7 +59,7 @@
                                         elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <figure class="figure"><img class="img-fluid figure-img" src="assets/img/tech/image3.png"></figure>
+                                            <figure class="figure"><img class="img-fluid d-block mx-auto" src="assets/img/goods_img/<?php echo $val['img_url']; ?>"></figure>
                                         </div>
                                         <div class="col-md-7">
                                             <h4>Lorem Ipsum</h4>
@@ -57,11 +72,11 @@
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                         </div>
                                         <div class="col-md-5">
-                                            <figure class="figure"><img class="img-fluid figure-img" src="assets/img/tech/image3.png"></figure>
+                                            <figure class="figure"><img class="img-fluid d-block mx-auto" src="assets/img/goods_img/<?php echo $val['img_url']; ?>"></figure>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade show specifications" role="tabpanel" id="specifications">
+                                <!-- <div class="tab-pane fade show specifications" role="tabpanel" id="specifications">
                                     <div class="table-responsive table-bordered">
                                         <table class="table table-bordered">
                                             <tbody>
@@ -84,7 +99,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="tab-pane fade show" role="tabpanel" id="reviews">
                                     <div class="reviews">
                                         <div class="review-item">

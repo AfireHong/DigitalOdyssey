@@ -2,10 +2,10 @@
 <?php 
     include 'header.php'; 
     //推荐商品信息
-    $sql_rec = "SELECT g.goods_id, g.goods_name, g.description, g.max_price, i.img_url FROM goods g, img i WHERE g.goods_id=i.goods_id AND g.is_rec='1' AND g.is_up='1' LIMIT 9";
+    $sql_rec = "SELECT g.goods_id, g.goods_name, g.max_price, i.img_url FROM goods g, img i WHERE g.goods_id=i.goods_id AND g.is_rec='1' AND g.is_up='1' LIMIT 9";
     $rec_res = $mySQLi->query($sql_rec);
     //热门商品信息
-    $sql_hot = "SELECT g.goods_id, g.goods_name, g.description, g.max_price, i.img_url FROM goods g, img i WHERE g.goods_id=i.goods_id AND g.is_hot='1' AND g.is_up='1' LIMIT 9";
+    $sql_hot = "SELECT g.goods_id, g.goods_name, g.max_price, i.img_url FROM goods g, img i WHERE g.goods_id=i.goods_id AND g.is_hot='1' AND g.is_up='1' LIMIT 9";
     $hot_res = $mySQLi->query($sql_hot);
 
 ?>
@@ -69,11 +69,6 @@
                                                 echo $val['goods_name'];
                                             ?>
                                         </p>
-                                        <p>
-                                            <?php
-                                                echo $val['description'];
-                                            ?>
-                                        </p>
                                     </a>
                                 </div>
                                 <div class="product-price">
@@ -118,11 +113,6 @@
                                         <p>
                                             <?php
                                                 echo $val['goods_name'];
-                                            ?>
-                                        </p>
-                                        <p>
-                                            <?php
-                                                echo $val['description'];
                                             ?>
                                         </p>
                                     </a>
