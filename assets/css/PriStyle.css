@@ -90,13 +90,8 @@
 	display: block;
 }
 .clean-block2{
-	padding-top: 50px;
+	padding-top: 60px;
 	padding-bottom: 50px;
-}
-@media (min-width: 576px) {
-	.clean-block2 {
-		padding-top: 100px;
-		padding-bottom: 100px;
 }
 /* 主页产品列表相关样式开始 */
 .product-show-container{
@@ -140,11 +135,14 @@
 	width: 400px;
 	height: 400px;
 }
-.d-md-none a{
-	color: #636e72;
-	text-decoration: none;
+.nav-tabs{
+	border-bottom: none;
 }
-.d-md-none a:hover{
-	color: #2d3436;
+.pa-Item{
+	cursor: pointer;
+}
+.dropdown-item a{
+	color: #2c3e50;
 	text-decoration: none;
+	font-size: 0.8rem;
 }
