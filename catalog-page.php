@@ -101,7 +101,7 @@
                                             $end = $page+2;
                                             if($page<=3){
                                                 $start = 1;
-                                                $end = 6;
+                                                $end = 5;
                                             } 
                                             if($page>=$pages-2){
                                                 $start = $pages-4;
