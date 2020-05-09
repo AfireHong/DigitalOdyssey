@@ -1,5 +1,19 @@
 <?php
     include 'header.php';
+    //每页显示条数
+    $pagesize = 9;
+    //当前页
+    $page = isset($_GET['page'])?$_GET['page']:1;
+    //开始行
+    $startrow = ($page-1)*$pagesize;
+    $sql1 = "SELECT * FROM goods";
+    $result1 = $mySQLi->query($sql1);
+    //总记录数和总页数
+    $records = $result1->num_rows;
+    $pages = ceil($records/$pagesize);
+    $sql2 = "SELECT goods.goods_id, goods.goods_name, goods.max_price, img.img_url FROM goods,img WHERE goods.goods_id=img.goods_id AND goods.is_up='1' LIMIT {$startrow}, {$pagesize}";
+    $reslut2 = $mySQLi->query($sql2);
+    $arrs = $reslut2->fetch_all(MYSQLI_ASSOC);
 ?>
     <main class="page catalog-page">
         <section class="clean-block clean-catalog dark">
@@ -61,122 +75,46 @@
                         <div class="col-md-9">
                             <div class="products">
                                 <div class="row no-gutters">
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="product-page.php">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
+                                    <?php
+                                        foreach ($arrs as $arr):
+                                    ?>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="clean-product-item">
+                                                <div class="image"><a href="product-page.php?gd_id=<?php echo $arr['goods_id']; ?>" target="_blank"><img class="img-fluid d-block mx-auto" src="assets/img/goods_img/<?php echo $arr['img_url'] ?>"></a></div>
+                                                <div class="product-name"><a href="product-page.php?gd_id=<?php echo $arr['goods_id']; ?>" target="_blank"><?php echo $arr['goods_name'] ?></a></div>
+                                                <div class="about">
+                                                    <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
+                                                    <div class="price">
+                                                        <h3><?php echo $arr['max_price'] ?></h3>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-4">
-                                        <div class="clean-product-item">
-                                            <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a><a href="#"></a></div>
-                                            <div class="product-name"><a href="#">Lorem ipsum dolor sit amet</a></div>
-                                            <div class="about">
-                                                <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                                <div class="price">
-                                                    <h3>$100</h3>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php endforeach;?>
                                 </div>
                                 <nav>
                                     <ul class="pagination">
-                                        <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                        <li class="page-item <?php if($page==1){echo "disabled";}?>"><a class="page-link" href="?page=1" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                        <?php
+                                            $start = $page-5;
+                                            $end = $page+4;
+                                            if($page<=6){
+                                                $start = 1;
+                                                $end = 10;
+                                            } 
+                                            if($page>=$pages-4){
+                                                $start = $pages-9;
+                                                $end = $pages;
+                                            }
+                                            if($pages<10){
+                                                $start = 1;
+                                                $end = $pages;
+                                            }
+                                            for($i=$start; $i<=$end; $i++){
+                                        ?>
+                                                <li class="page-item <?php if($i==$page){echo "active";}?>"><a class="page-link" href="?page=<?php echo $i;?>"><?php echo $i;?></a></li>
+                                        <?php }?>
+                                        <li class="page-item <?php if($page==$pages){echo "disabled";}?>"><a class="page-link" href="?page=<?php echo $pages;?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                                     </ul>
                                 </nav>
                             </div>
