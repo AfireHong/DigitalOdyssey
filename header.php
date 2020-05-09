@@ -48,7 +48,8 @@
                     <li class="nav-item pa-Item dropdown" role="presentation"><a class="nav-link dropdown-toggle" data-toggle="dropdown">个人中心</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a href="center.php" class="dropdown-item-text">主页</a></li>
-                                <li class="dropdown-item"><a href="#" class="dropdown-item-text">资料编辑</a></li>
+                                <li class="dropdown-item"><a href="profile_edit.php" class="dropdown-item-text">资料编辑</a></li>
+                                <li class="dropdown-item"><a href="account_secure.php" class="dropdown-item-text">账户安全</a></li>
                                 <li class="dropdown-item"><a href="loginout.php" class="dropdown-item-text">登出</a></li>
                             </ul>
                     </li>
