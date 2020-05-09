@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 07/05/2020 14:19:26
+ Date: 09/05/2020 18:55:17
 */
 
 SET NAMES utf8mb4;
@@ -102,9 +102,9 @@ CREATE TABLE `users`  (
   `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '邮箱',
   `sex` tinyint(1) NULL DEFAULT 0 COMMENT '性别 0保密 1男 2女',
   `age` int(3) NULL DEFAULT 0 COMMENT '年龄',
-  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '状态 0为正常 1被禁',
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态 1为正常 0被禁',
   `power` tinyint(1) NOT NULL DEFAULT 0 COMMENT '权力 0普通用户 1管理员',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100003 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100005 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
