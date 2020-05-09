@@ -159,12 +159,15 @@
                         if(data['status']== 'err'){
                             layer.msg("密码错误！");
                         }else if(data['status']== 'ok'){
-                            layer.msg("密码已更改！");
+                            layer.msg('密码已更改，请重新登陆！',{ shift:-1, time: 1000 },function () {
+                                document.location.href='loginout.php';
+                            });
+
                         }
                     },error:function (){
                         alert("err!");
                     }
-                    })
+                    });
                 });
                 
             }
