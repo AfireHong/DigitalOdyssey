@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 07/05/2020 14:20:40
+ Date: 09/05/2020 18:55:40
 */
 
 SET NAMES utf8mb4;
@@ -137,37 +137,37 @@ INSERT INTO `goods` VALUES (100057, 'HP 惠普 250 G7（15.6英寸 / FHD）商�
 INSERT INTO `goods` VALUES (100058, '	HP 惠普 14s-dq1014ns 14 英寸 FHD 笔记本电脑', 1, '惠普', 0, 3870.00, NULL, '英特尔酷睿 i7-1065G7，8 GB 内存，512 GB 固态硬盘，集成显卡，无操作系统） 灰色 – 西班牙 QWERTY 键盘', 0, 1, 1, 0);
 INSERT INTO `goods` VALUES (100059, 'HP 惠普 Probook 470 G7 ( 17.3 英寸 / FHD ) 商务笔记本电脑', 1, '惠普', 0, 6552.00, NULL, '英特尔酷睿 i7-10510U，16GB DDR4 内存，256GB 固态硬盘，1TB 硬盘，英特尔超高清显卡620，Windows 10 Pro）银色', 0, NULL, 1, 0);
 INSERT INTO `goods` VALUES (100060, 'HP 惠普 Probook 470 G7 ( 17.3 英寸 / FHD ) 商务笔记本电脑', 1, '惠普', 0, 6093.00, NULL, '英特尔i7-10510U , 8GB DDR4 内存 , 512GB 固态硬盘 , 1TB 硬盘 , 英特尔超高清显卡 620，Windows 10 Pro ) 银色', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100061, '华为 HUAWEI nova 7 Pro', 3, '华为', 0, 3699.00, 0.00, '3200万追焦双摄 50倍潜望式变焦四摄 5G SoC芯片 8GB+128GB 7号色全网通5G手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100062, '华为 HUAWEI P40', 3, '华为', 0, 4188.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡三摄 30倍数字变焦 6GB+128GB亮黑色全网通5G手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100063, '华为 HUAWEI P40 Pro', 3, '华为', 0, 6488.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡四摄 50倍数字变焦 8GB+256GB亮黑色全网通5G手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100064, '华为 HUAWEI nova 7 SE 5G', 3, '华为', 0, 2399.00, 0.00, '麒麟820 5G SoC芯片 6400万高清AI四摄 40W超级快充 8GB+128GB 幻夜黑全网通手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100065, '华为 HUAWEI Mate 30 5G', 3, '华为', 0, 4499.00, 0.00, '麒麟990 4000万超感光徕卡影像双超级快充8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100066, '华为 HUAWEI Mate 30 Pro 5G', 3, '华为', 0, 5899.00, 0.00, '麒麟990 OLED环幕屏双4000万徕卡电影四摄8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100067, '小米10', 3, '小米', 0, 4299.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 对称式立体声 8GB+256GB 冰海蓝 拍照智能游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100068, 'Redmi K30 Pro 5G先锋', 3, '小米 红米', 0, 3399.00, 0.00, '骁龙865旗舰处理器 弹出式超光感全面屏 索尼6400万高清四摄 4700mAh长续航 33W闪充 8GB+128GB 天际蓝 游戏智能手机 小米 红米', 1, 0, 0, 0);
-INSERT INTO `goods` VALUES (100069, 'Redmi Note8', 3, '小米 红米', 0, 899.00, 0.00, '4800万全场景四摄 4000mAh长续航 高通骁龙665 18W快充 4GB+64GB 梦幻蓝 游戏手机 小米 红米', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100070, '小米10青春版', 3, '小米', 0, 2499.00, 0.00, '双模5G 骁龙765G 50倍潜望式变焦四摄 8GB+128GB 蓝莓薄荷游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100071, '小米10 Pro', 3, '小米', 0, 4999.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 50倍变焦 50W快充 8GB+256GB 珍珠白 拍照智能游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100072, 'Apple iPhone SE (A2298)', 3, 'Apple', 0, 3799.00, 0.00, '128GB 黑色 移动联通电信4G手机', 1, 0, 0, 0);
-INSERT INTO `goods` VALUES (100073, 'Apple iPhone XR (A2108)', 3, 'Apple', 0, 4299.00, 0.00, '64GB 黄色 移动联通电信4G手机 双卡双待', 1, 0, 0, 0);
-INSERT INTO `goods` VALUES (100074, 'Apple iPhone XS Max (A2104)', 3, 'Apple', 0, 6099.00, 0.00, '64GB 银色 移动联通电信4G手机 双卡双待', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100075, 'Apple iPhone 11 (A2223)', 3, 'Apple', 0, 5499.00, 0.00, '64GB 紫色 移动联通电信4G手机 双卡双待', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100076, 'Apple iPhone 11 Pro (A2217)', 3, 'Apple', 0, 8699.00, 0.00, '64GB 金色 移动联通电信4G手机 双卡双待', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100077, 'Apple iPhone 11 Pro Max (A2220)', 3, 'Apple', 0, 9599.00, 0.00, '64GB 深空灰色 移动联通电信4G手机 双卡双待', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100078, '一加 OnePlus 8', 3, '一加', 0, 4599.00, 0.00, '5G旗舰 90Hz高清柔性屏 骁龙865 180g轻薄手感 12GB+256GB 黑镜 超清超广角拍照游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100079, '一加 OnePlus 8 Pro', 3, '一加', 0, 5999.00, 0.00, '5G旗舰 2K+120Hz 柔性屏 30W无线闪充 骁龙865 12GB+256GB 青空 超清超广角拍照游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100080, '一加 OnePlus 7T', 3, '一加', 0, 3199.00, 0.00, '90Hz流体屏 骁龙855Plus旗舰 4800万超广角三摄  8GB+256GB 冰际蓝 游戏手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100081, 'vivo X30 Pro 5G', 3, 'vivo', 0, 3698.00, 0.00, '秘银 8GB+128GB 双模5G 60倍变焦 50mm专业人像镜头 全网通智慧旗舰手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100082, 'vivo S6 5G手机', 3, 'vivo', 0, 2698.00, 0.00, '8GB+128GB 天鹅湖 前置3200万超清夜景自拍 4500mAh大电池 后置四摄 双模5G全网通手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100083, 'vivo NEX 3S', 3, 'vivo', 0, 5298.00, 0.00, '5G 12GB+256GB 深空流光 骁龙865 无界瀑布屏 6400万超高像素 双模5G全网通手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100084, 'vivo iQOO Neo3 5G', 3, 'vivo', 0, 2998.00, 0.00, '8GB+128GB 夜幕黑 高通骁龙865 144Hz竞速屏 立体双扬 44W闪充 双模5G全网通手机', 1, 0, 0, 0);
-INSERT INTO `goods` VALUES (100085, 'vivo iQOO 3 5G', 3, 'vivo', 0, 3998.00, 0.00, '12GB+128GB 驭影黑 高通骁龙865 55W超快闪充 专业电竞游戏体验手机 双模5G全网通手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100086, 'OPPO Ace2 8+128', 3, 'oppo', 0, 3999.00, 0.00, '月岩灰双模5G 185g超薄机身 65W超级闪充 40W无线闪充 90Hz电竞屏高通骁龙865游戏智能手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100087, 'OPPO Find X2', 3, 'oppo', 0, 5499.00, 0.00, '超感官旗舰 3K分辨率 120Hz超感屏 多焦段影像系统 骁龙865 65w闪充 8GB+128GB碧波 双模5G手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100088, 'OPPO Reno3 Pro', 3, 'oppo', 0, 3699.00, 0.00, '双模5G 视频双防抖 90HZ高感曲面屏 7.7mm轻薄机身 8GB+128GB 日出印象 拍照游戏视频手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100089, 'OPPO Reno3', 3, 'oppo', 0, 2999.00, 0.00, '双模5G 6400万超清四摄 视频双防抖 7.96mm纤薄机身 8GB+128GB 蓝色星夜全网通拍照游戏视频手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100090, 'OPPO A91', 3, 'oppo', 0, 1799.00, 0.00, '8GB+128GB 暗夜星辰 4800万超清四摄 VOOC闪充3.0 光感屏幕指纹 全网通4G 全面屏拍照游戏智能手机', 0, 0, 0, 0);
-INSERT INTO `goods` VALUES (100091, 'OPPO Reno2 Z', 3, 'oppo', 0, 2299.00, 0.00, '8G+128G 深海夜光 4800万夜拍四摄 VOOC闪充 炫彩升降 全网通4G 全面屏拍照游戏智能手机', 0, 0, 0, 0);
+INSERT INTO `goods` VALUES (100061, '华为 HUAWEI nova 7 Pro', 3, '华为', 0, 3699.00, 0.00, '3200万追焦双摄 50倍潜望式变焦四摄 5G SoC芯片 8GB+128GB 7号色全网通5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100062, '华为 HUAWEI P40', 3, '华为', 0, 4188.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡三摄 30倍数字变焦 6GB+128GB亮黑色全网通5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100063, '华为 HUAWEI P40 Pro', 3, '华为', 0, 6488.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡四摄 50倍数字变焦 8GB+256GB亮黑色全网通5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100064, '华为 HUAWEI nova 7 SE 5G', 3, '华为', 0, 2399.00, 0.00, '麒麟820 5G SoC芯片 6400万高清AI四摄 40W超级快充 8GB+128GB 幻夜黑全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100065, '华为 HUAWEI Mate 30 5G', 3, '华为', 0, 4499.00, 0.00, '麒麟990 4000万超感光徕卡影像双超级快充8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100066, '华为 HUAWEI Mate 30 Pro 5G', 3, '华为', 0, 5899.00, 0.00, '麒麟990 OLED环幕屏双4000万徕卡电影四摄8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100067, '小米10', 3, '小米', 0, 4299.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 对称式立体声 8GB+256GB 冰海蓝 拍照智能游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100068, 'Redmi K30 Pro 5G先锋', 3, '小米 红米', 0, 3399.00, 0.00, '骁龙865旗舰处理器 弹出式超光感全面屏 索尼6400万高清四摄 4700mAh长续航 33W闪充 8GB+128GB 天际蓝 游戏智能手机 小米 红米', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100069, 'Redmi Note8', 3, '小米 红米', 0, 899.00, 0.00, '4800万全场景四摄 4000mAh长续航 高通骁龙665 18W快充 4GB+64GB 梦幻蓝 游戏手机 小米 红米', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100070, '小米10青春版', 3, '小米', 0, 2499.00, 0.00, '双模5G 骁龙765G 50倍潜望式变焦四摄 8GB+128GB 蓝莓薄荷游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100071, '小米10 Pro', 3, '小米', 0, 4999.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 50倍变焦 50W快充 8GB+256GB 珍珠白 拍照智能游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100072, 'Apple iPhone SE (A2298)', 3, 'Apple', 0, 3799.00, 0.00, '128GB 黑色 移动联通电信4G手机', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100073, 'Apple iPhone XR (A2108)', 3, 'Apple', 0, 4299.00, 0.00, '64GB 黄色 移动联通电信4G手机 双卡双待', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100074, 'Apple iPhone XS Max (A2104)', 3, 'Apple', 0, 6099.00, 0.00, '64GB 银色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100075, 'Apple iPhone 11 (A2223)', 3, 'Apple', 0, 5499.00, 0.00, '64GB 紫色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100076, 'Apple iPhone 11 Pro (A2217)', 3, 'Apple', 0, 8699.00, 0.00, '64GB 金色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100077, 'Apple iPhone 11 Pro Max (A2220)', 3, 'Apple', 0, 9599.00, 0.00, '64GB 深空灰色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100078, '一加 OnePlus 8', 3, '一加', 0, 4599.00, 0.00, '5G旗舰 90Hz高清柔性屏 骁龙865 180g轻薄手感 12GB+256GB 黑镜 超清超广角拍照游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100079, '一加 OnePlus 8 Pro', 3, '一加', 0, 5999.00, 0.00, '5G旗舰 2K+120Hz 柔性屏 30W无线闪充 骁龙865 12GB+256GB 青空 超清超广角拍照游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100080, '一加 OnePlus 7T', 3, '一加', 0, 3199.00, 0.00, '90Hz流体屏 骁龙855Plus旗舰 4800万超广角三摄  8GB+256GB 冰际蓝 游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100081, 'vivo X30 Pro 5G', 3, 'vivo', 0, 3698.00, 0.00, '秘银 8GB+128GB 双模5G 60倍变焦 50mm专业人像镜头 全网通智慧旗舰手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100082, 'vivo S6 5G手机', 3, 'vivo', 0, 2698.00, 0.00, '8GB+128GB 天鹅湖 前置3200万超清夜景自拍 4500mAh大电池 后置四摄 双模5G全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100083, 'vivo NEX 3S', 3, 'vivo', 0, 5298.00, 0.00, '5G 12GB+256GB 深空流光 骁龙865 无界瀑布屏 6400万超高像素 双模5G全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100084, 'vivo iQOO Neo3 5G', 3, 'vivo', 0, 2998.00, 0.00, '8GB+128GB 夜幕黑 高通骁龙865 144Hz竞速屏 立体双扬 44W闪充 双模5G全网通手机', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100085, 'vivo iQOO 3 5G', 3, 'vivo', 0, 3998.00, 0.00, '12GB+128GB 驭影黑 高通骁龙865 55W超快闪充 专业电竞游戏体验手机 双模5G全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100086, 'OPPO Ace2 8+128', 3, 'oppo', 0, 3999.00, 0.00, '月岩灰双模5G 185g超薄机身 65W超级闪充 40W无线闪充 90Hz电竞屏高通骁龙865游戏智能手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100087, 'OPPO Find X2', 3, 'oppo', 0, 5499.00, 0.00, '超感官旗舰 3K分辨率 120Hz超感屏 多焦段影像系统 骁龙865 65w闪充 8GB+128GB碧波 双模5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100088, 'OPPO Reno3 Pro', 3, 'oppo', 0, 3699.00, 0.00, '双模5G 视频双防抖 90HZ高感曲面屏 7.7mm轻薄机身 8GB+128GB 日出印象 拍照游戏视频手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100089, 'OPPO Reno3', 3, 'oppo', 0, 2999.00, 0.00, '双模5G 6400万超清四摄 视频双防抖 7.96mm纤薄机身 8GB+128GB 蓝色星夜全网通拍照游戏视频手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100090, 'OPPO A91', 3, 'oppo', 0, 1799.00, 0.00, '8GB+128GB 暗夜星辰 4800万超清四摄 VOOC闪充3.0 光感屏幕指纹 全网通4G 全面屏拍照游戏智能手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100091, 'OPPO Reno2 Z', 3, 'oppo', 0, 2299.00, 0.00, '8G+128G 深海夜光 4800万夜拍四摄 VOOC闪充 炫彩升降 全网通4G 全面屏拍照游戏智能手机', 0, 0, 1, 0);
 
 -- ----------------------------
 -- Table structure for img
@@ -309,15 +309,14 @@ CREATE TABLE `users`  (
   `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '邮箱',
   `sex` tinyint(1) NULL DEFAULT 0 COMMENT '性别 0保密 1男 2女',
   `age` int(3) NULL DEFAULT 0 COMMENT '年龄',
-  `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '状态 0为正常 1被禁',
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态 1为正常 0被禁',
   `power` tinyint(1) NOT NULL DEFAULT 0 COMMENT '权力 0普通用户 1管理员',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100003 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100005 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (100001, 'test', '202CB962AC59075B964B07152D234B70', '13012345678', '123@qq.com', 1, 1, 1, 0);
-INSERT INTO `users` VALUES (100002, 'teso', '202CB962AC59075B964B07152D234B70', '13012345670', '123', NULL, NULL, 1, 0);
+INSERT INTO `users` VALUES (100004, 'test', 'ce1c1cdc2fac8e1167f22cd4bd88d324', '13012345678', 'qwer1234@gmail.com', 0, 0, 1, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;

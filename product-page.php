@@ -48,7 +48,7 @@
                     </div>
                     <div class="product-info">
                         <div>
-                            <ul class="nav nav-tabs" id="myTab">
+                            <ul class="nav nav-tabs tabs-border" id="myTab">
                                 <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" id="description-tab" href="#description">描述</a></li>
                                 <!-- <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="specifications-tabs" href="#specifications">Specifications</a></li> -->
                                 <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="reviews-tab" href="#reviews">反馈</a></li>

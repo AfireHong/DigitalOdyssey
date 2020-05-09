@@ -28,7 +28,7 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar nav-shadow">
-        <div class="container"><a class="navbar-brand logo" href="#"><img src="assets/img/logo_trans.png" width="45px"/> Digital
+        <div class="container"><a class="navbar-brand logo" href="index.php"><img src="assets/img/logo_trans.png" width="45px"/> Digital
                 Odyssey</a>
         <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
@@ -49,9 +49,9 @@
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a href="center.php" class="dropdown-item-text">主页</a></li>
                                 <li class="dropdown-item"><a href="#" class="dropdown-item-text">资料编辑</a></li>
+                                <li class="dropdown-item"><a href="loginout.php" class="dropdown-item-text">登出</a></li>
                             </ul>
                     </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="loginout.php">登出</a></li>
                     <?php
                         }
                     ?>
