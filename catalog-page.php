@@ -95,18 +95,19 @@
                                 <nav>
                                     <ul class="pagination">
                                         <li class="page-item <?php if($page==1){echo "disabled";}?>"><a class="page-link" href="?page=1" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                        <li class="page-item <?php if($page==1){echo "disabled";}?>"><a class="page-link" href="?page=<?php echo $page-1; ?>" aria-label="Previous"><span aria-hidden="true">‹</span></a></li>
                                         <?php
-                                            $start = $page-5;
-                                            $end = $page+4;
-                                            if($page<=6){
+                                            $start = $page-2;
+                                            $end = $page+2;
+                                            if($page<=3){
                                                 $start = 1;
-                                                $end = 10;
+                                                $end = 6;
                                             } 
-                                            if($page>=$pages-4){
-                                                $start = $pages-9;
+                                            if($page>=$pages-2){
+                                                $start = $pages-4;
                                                 $end = $pages;
                                             }
-                                            if($pages<10){
+                                            if($pages<5){
                                                 $start = 1;
                                                 $end = $pages;
                                             }
@@ -114,6 +115,7 @@
                                         ?>
                                                 <li class="page-item <?php if($i==$page){echo "active";}?>"><a class="page-link" href="?page=<?php echo $i;?>"><?php echo $i;?></a></li>
                                         <?php }?>
+                                        <li class="page-item <?php if($page==$pages){echo "disabled";}?>"><a class="page-link" href="?page=<?php echo $page+1; ?>" aria-label="Previous"><span aria-hidden="true">›</span></a></li>
                                         <li class="page-item <?php if($page==$pages){echo "disabled";}?>"><a class="page-link" href="?page=<?php echo $pages;?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                                     </ul>
                                 </nav>
