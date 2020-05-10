@@ -20,8 +20,10 @@
                     <div class="form-group">
                         <label for="password">密码</label>
                         <input class="form-control item" type="password" id="password">
-                        <p id="passwordSet" class="text-info">密码最低长度8个字符，应至少包含一个大写字母，<br>一个小写字母和一个数字</p>
                     </div>
+                    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="密码最低长度8个字符，应至少包含一个大写字母，一个小写字母和一个数字">
+                    密码强度要求
+                    </button>
                     <div class="form-group">
                         <label for="password">再次输入密码</label>
                         <input class="form-control item" type="password" id="repassword">
@@ -118,6 +120,9 @@
                 })
             })
         });
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
     <?php
         include 'footer.php';

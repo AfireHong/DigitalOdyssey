@@ -33,22 +33,23 @@
         <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
-                <ul class="nav navbar-nav ml-auto nav-tabs">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">主页</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php">产品目录</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.php">购物车</a></li>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link nav-border" href="index.php">主页</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link nav-border" href="catalog-page.php">产品目录</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link nav-bordernav-border nav-border" href="shopping-cart.php">购物车</a></li>
                     <?php
                         if(empty($_SESSION['uid'])){
                     ?>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">登录</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">注册</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link nav-border" href="login.php">登录</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link nav-border" href="registration.php">注册</a></li>
                     <?php
                         }else{
                     ?>
-                    <li class="nav-item pa-Item dropdown" role="presentation"><a class="nav-link dropdown-toggle" data-toggle="dropdown">个人中心</a>
+                    <li class="nav-item pa-Item dropdown" role="presentation"><a class="nav-link dropdown-toggle nav-border" data-toggle="dropdown">个人中心</a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown-item"><a href="center.php" class="dropdown-item-text">主页</a></li>
-                                <li class="dropdown-item"><a href="#" class="dropdown-item-text">资料编辑</a></li>
+                                <li class="dropdown-item"><a href="profile_edit.php" class="dropdown-item-text">资料编辑</a></li>
+                                <li class="dropdown-item"><a href="account_secure.php" class="dropdown-item-text">账户安全</a></li>
                                 <li class="dropdown-item"><a href="loginout.php" class="dropdown-item-text">登出</a></li>
                             </ul>
                     </li>
