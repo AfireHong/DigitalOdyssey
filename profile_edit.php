@@ -14,7 +14,6 @@
                     <h2 class="text-info">资料编辑</h2>
                 </div>
                 <form>
-                    <div class="block-content" id="b-content1">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-usern">用户名@</span>
@@ -41,7 +40,6 @@
                             </div>
                         </div>
                         <button type="button" class="btn btn-primary btn-lg btn-block" id="update-profile">更新个人资料</button>
-                    </div>
                 </form>
                 
             </div>

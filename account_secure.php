@@ -15,7 +15,6 @@
                     <h2 class="text-info">账户安全</h2>
                 </div>
                     <form>
-                        <div class="block-content">
                             <h3 class="text-info">密码更改</h3>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -60,7 +59,6 @@
                             <div class="center-btn">
                                     <button type="button" class="btn btn-primary" id="change_email">更改绑定</button>
                             </div>
-                        </div>
                     </form>
             </div>
         </section>
