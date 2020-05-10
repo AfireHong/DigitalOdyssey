@@ -9,53 +9,59 @@
 ?>
 
     <main class="page">
-        <section class="clean-block">
+        <section class="clean-block clean-form dark">
             <div class="container" id="b-con1">
                 <div class="block-heading">
                     <h2 class="text-info">账户安全</h2>
                 </div>
-                <div class="block-content">
-                    <h3 class="text-info">密码更改</h3>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="old-passw">旧密码</span>
+                    <form>
+                        <div class="block-content">
+                            <h3 class="text-info">密码更改</h3>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="old-passw">旧密码</span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Old password" aria-label="Old-password" aria-describedby="old-passw" id="oldPass">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="new-passw">新密码</span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="New password" aria-label="New-password" aria-describedby="new-passw" id="newPass">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="confirm-passw">再次确认密码</span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Confirm password" aria-label="Confirm-passw" aria-describedby="confirm-passw" id="confirmPass">
+                            </div>
+                            <div class="input-group mb-3">
+                                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="密码最低长度8个字符，应至少包含一个大写字母，一个小写字母和一个数字">
+                                    密码强度要求
+                                </button>&nbsp
+                                <button type="button" class="btn btn-danger" id="change_passw">更改密码</button>
+                            </div>
+                            <h3 class="text-info">验证方式</h3>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">绑定手机号</span>
+                                </div>
+                                <span class="form-control" id="Phone_num"></span>
+                            </div>
+                            <div class="center-btn">
+                                    <button type="button" class="btn btn-primary" id="change_phone">更改绑定</button>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">绑定邮箱</span>
+                                </div>
+                                <span class="form-control" id="email_num"></span>
+                            </div>
+                            <div class="center-btn">
+                                    <button type="button" class="btn btn-primary" id="change_email">更改绑定</button>
+                            </div>
                         </div>
-                        <input type="password" class="form-control" placeholder="Old password" aria-label="Old-password" aria-describedby="old-passw" id="oldPass">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="new-passw">新密码</span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="New password" aria-label="New-password" aria-describedby="new-passw" id="newPass">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="confirm-passw">再次确认密码</span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="Confirm password" aria-label="Confirm-passw" aria-describedby="confirm-passw" id="confirmPass">
-                    </div>
-                    <div class="input-group mb-3">
-                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="密码最低长度8个字符，应至少包含一个大写字母，一个小写字母和一个数字">
-                            密码强度要求
-                        </button>&nbsp
-                        <button type="button" class="btn btn-danger" id="change_passw">更改密码</button>
-                    </div>
-                    <h3 class="text-info">验证方式</h3>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">绑定手机号</span>
-                        </div>
-                        <span class="form-control" id="Phone_num"></span>
-                        <button type="button" class="btn btn-primary" id="change_phone">更改绑定</button>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">绑定邮箱</span>
-                        </div>
-                        <span class="form-control" id="email_num"></span>
-                        <button type="button" class="btn btn-primary" id="change_email">更改绑定</button>
-                    </div>
-                </div>
+                    </form>
             </div>
         </section>
         <section class="clean-block">
