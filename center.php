@@ -142,7 +142,7 @@
                     success: function (data) {
                         if(data.status == 'ok'){
                             //若该用户已被封禁
-                            if(data.userdata.status == 1){
+                            if(data.userdata.status == 0){
                                 $('#isBanned').html("<br>(该账户因违规封禁中！内容不可见)");
                                 $('#cont1').css(
                                     {

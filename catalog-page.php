@@ -6,7 +6,7 @@
     $page = isset($_GET['page'])?$_GET['page']:1;
     //开始行
     $startrow = ($page-1)*$pagesize;
-    $sql1 = "SELECT * FROM goods";
+    $sql1 = "SELECT * FROM goods where is_up='1'";
     $result1 = $mySQLi->query($sql1);
     //总记录数和总页数
     $records = $result1->num_rows;

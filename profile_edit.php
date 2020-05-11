@@ -8,39 +8,40 @@
     }
 ?>
     <main class="page">
-        <section class="clean-block">  
+        <section class="clean-block clean-form dark">  
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">资料编辑</h2>
                 </div>
-                <div class="block-content" id="b-content1">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-usern">用户名@</span>
+                <form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-usern">用户名@</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-usern" id="user-name">
                         </div>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-usern" id="user-name">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="sex">性别</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="sex">性别</label>
+                            </div>
+                            <select class="custom-select" id="sex">
+                                <option value="0" id="opt0">保密</option>
+                                <option value="1" id="opt1">男</option>
+                                <option value="2" id="opt2">女</option>
+                            </select>
                         </div>
-                        <select class="custom-select" id="sex">
-                            <option value="0" id="opt0">保密</option>
-                            <option value="1" id="opt1">男</option>
-                            <option value="2" id="opt2">女</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">年龄</span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">年龄</span>
+                            </div>
+                            <input type="number" class="form-control" id="age">
+                            <div class="input-group-append">
+                                <span class="input-group-text">岁</span>
+                            </div>
                         </div>
-                        <input type="number" class="form-control" id="age">
-                        <div class="input-group-append">
-                            <span class="input-group-text">岁</span>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" id="update-profile">更新个人资料</button>
-                </div>
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="update-profile">更新个人资料</button>
+                </form>
+                
             </div>
         </section>
         <section class="clean-block">
