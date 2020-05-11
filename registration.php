@@ -32,6 +32,7 @@
                         <label for="email">邮箱</label>
                         <input class="form-control item" type="email" id="email">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LcRcvUUAAAAAMqrbyUHtRl3TYcpYnA1XX-qzJd-"></div>
                     <button class="btn btn-primary btn-block" type="button" id="sub-btn">注册</button>
                     </form>
             </div>
@@ -88,7 +89,29 @@
                         layer.msg("请按要求设置符合安全强度的密码！");
                         return;
                     }
-                    //ajax提交表单
+                    var notRobot = 0;
+
+                    $.when(
+                        $.ajax({
+                        type: "POST",
+                        url: "recaptcha.php",
+                        data: "&g-recaptcha-response=" + grecaptcha.getResponse(),
+                        success: function (data) {
+                            if(data == 'ok'){
+                                notRobot = 1;
+                            }else if(data == 'error'){
+                                notRobot = -1;
+                            }else if(data == 'not verify'){
+                                notRobot = 0;
+                            }
+                        },error:function () {
+                            alert("error!");
+                        }
+                    })
+
+                    ).done(function () {
+                        if(notRobot == 1){
+                                //ajax提交表单
                     $.ajax({
                     method: "post",
                     url: "doregister.php",
@@ -116,7 +139,18 @@
                     error:function () {
                         alert(msg);
                     }
-                })
+                    })
+                                return;
+                    }else if(notRobot == 0){    
+                        layer.msg("请先进行人机验证！");
+                        return;
+                    }else if(notRobot == -1){
+                        layer.msg("人机验证未通过！");
+                        return;
+                    }
+                    });
+
+                    
                 })
             })
         });
@@ -124,6 +158,7 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
+    <script src='https://www.recaptcha.net/recaptcha/api.js?hl=zh-CN'></script>
     <?php
         include 'footer.php';
     ?>
