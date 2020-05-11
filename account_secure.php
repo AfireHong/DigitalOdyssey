@@ -46,14 +46,13 @@
                             <span class="input-group-text">绑定手机号</span>
                         </div>
                         <span class="form-control" id="Phone_num"></span>
-                        <button type="button" class="btn btn-primary" id="change_phone">更改绑定</button>
+                        
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">绑定邮箱</span>
                         </div>
                         <span class="form-control" id="email_num"></span>
-                        <button type="button" class="btn btn-primary" id="change_email">更改绑定</button>
                     </div>
                 </div>
             </div>
