@@ -1,4 +1,9 @@
 <?php
+    if($_SERVER['HTTP_REFERER'] == ""){
+        include 'header.php';
+        include '404.php';
+        exit;
+    }
     if($_POST['g-recaptcha-response']) {
         $captcha = $_POST['g-recaptcha-response'];
         $secret = "6LcRcvUUAAAAAKLvY5ehT_B97hzQFEPJfQhTnjxa";
