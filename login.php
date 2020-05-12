@@ -71,6 +71,7 @@
                                     obj = JSON.parse(result);
                                     if(!obj.code){
                                         layer.msg('手机号或密码错误！');
+                                        grecaptcha.reset();
                                     }else{
                                         layer.msg('登录成功！',{ shift:-1, time: 1000 },function () {
                                             document.location.href='index.php';
