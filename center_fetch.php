@@ -1,4 +1,9 @@
 <?php
+    if($_SERVER['HTTP_REFERER'] == ""){
+        include 'header.php';
+        include '404.php';
+        exit;
+    }
     include_once 'conn.php';
 
     $data = array();

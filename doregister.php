@@ -5,6 +5,7 @@
         exit;
     }
     include_once 'conn.php';
+    
     $responseDate = array("code" => 0, "msg" => "", "uid"=>"");
     //echo json_encode($responseDate);
     $username = $_POST['name'];
