@@ -16,7 +16,7 @@
                     <div class="form-group"><label for="password">密码</label><input class="form-control" type="password" id="password"></div>
                     <div class="form-group">
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">记住我</label></div></div>
-                    <div class="g-recaptcha" data-sitekey="6LcRcvUUAAAAAMqrbyUHtRl3TYcpYnA1XX-qzJd-" data-size="compact"></div>
+                    <div class="g-recaptcha" data-sitekey="6LcRcvUUAAAAAMqrbyUHtRl3TYcpYnA1XX-qzJd-"></div>
                     <button class="btn btn-primary btn-block" id="sub-btn" type="button">登录</button>
                 </form>
             </div>
@@ -96,6 +96,26 @@
                 })
             })
         });
+        $(function(){
+  function rescaleCaptcha(){
+    var width = $('.g-recaptcha').parent().width();
+    var scale;
+    if (width < 302) {
+      scale = width / 302;
+    } else{
+      scale = 1.0; 
+    }
+
+    $('.g-recaptcha').css('transform', 'scale(' + scale + ')');
+    $('.g-recaptcha').css('-webkit-transform', 'scale(' + scale + ')');
+    $('.g-recaptcha').css('transform-origin', '0 0');
+    $('.g-recaptcha').css('-webkit-transform-origin', '0 0');
+  }
+
+  rescaleCaptcha();
+  $( window ).resize(function() { rescaleCaptcha(); });
+
+});
     </script>
     <script src='https://www.recaptcha.net/recaptcha/api.js?hl=zh-CN'></script>
 <?php
