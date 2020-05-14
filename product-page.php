@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="img_info">
-                                    <a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/goods_img/<?php echo $val['img_url']; ?>"></a>
+                                    <a href="assets/img/goods_img/<?php echo $val['img_url']; ?>"><img class="img-fluid d-block mx-auto" src="assets/img/goods_img/<?php echo $val['img_url']; ?>"></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -37,7 +37,7 @@
                                     <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                     <div class="price">
                                         <h3><?php echo '￥'.$val['max_price']?></h3>
-                                    </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>加入购物车</button>
+                                    </div><button class="btn btn-primary" type="button" id="addcart" gd_id="<?php echo $gd_id?>"><i class="icon-basket"></i>加入购物车</button>
                                     <div class="summary">
                                         <h4>详细信息:</br>
                                         <?php echo $val['description']?></h4>
@@ -131,6 +131,27 @@
             </div>
         </section>
     </main>
+    <script>
+        $(function(){
+            $('#addcart').click(function() {
+                var gd_id = this.getAttribute('gd_id');
+                //console.log(gd_id);
+                layui.use('layer',function() {
+                    $.ajax({
+                        method: "GET",
+                        url: "deal_cart.php",
+                        data:"&deal=add&gd_id="+gd_id,
+                        success:function () {
+                                layer.msg("添加成功！快去购物车看看吧！",{icon: 1});
+                        },
+                        error:function () {
+                            alert(msg);
+                        }
+                    })
+                })
+            })
+        })
+    </script>
     <?php
         include 'footer.php';
     ?>
