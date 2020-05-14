@@ -10211,7 +10211,7 @@ html {
 .clean-block.clean-cart .items .product .price {
 	font-weight: 700;
 	font-size: 22px;
-	text-align: right;
+	text-align: center;
 }
 .clean-block.clean-cart .summary {
 	background-color: #f7fbff;
