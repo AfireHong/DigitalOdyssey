@@ -142,7 +142,7 @@
                         url: "deal_cart.php",
                         data:"&deal=add&gd_id="+gd_id,
                         success:function () {
-                                layer.msg("添加成功！快去购物车看看吧！",{icon: 1});
+                                layer.msg("添加成功！快去<a href='shopping-cart.php'>购物车</a>看看吧！",{icon: 1});
                         },
                         error:function () {
                             alert(msg);
