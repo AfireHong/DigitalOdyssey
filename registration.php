@@ -32,7 +32,7 @@
                         <label for="email">邮箱</label>
                         <input class="form-control item" type="email" id="email">
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6LcRcvUUAAAAAMqrbyUHtRl3TYcpYnA1XX-qzJd-"></div>
+                    <div class="g-recaptcha" data-sitekey="6LeSjfUUAAAAAA_zgHOV42tYZeJUCHSIQp72XlJ9"></div>
                     <button class="btn btn-primary btn-block" type="button" id="sub-btn">注册</button>
                     </form>
             </div>

@@ -55,7 +55,7 @@
                                     <button class="btn btn-primary btn-block btn-sm" type="button">支付订单</button>
                                 </a>
                                     <button class="btn btn-danger btn-block btn-sm" type="button" id="clear-cart">清空购物车</button>
-                                <a href="payment-page.php">
+                                <a href="index.php">
                                     <button class="btn btn-success btn-block btn-sm" type="button">继续购物</button>
                                 </a>
                                 </div>

@@ -1,0 +1,21 @@
+{
+    "contentManagement": [{
+            "title": "用户管理",
+            "icon": "&#xe613;",
+            "href": "page/user/userList.html",
+            "spread": false
+        },
+        {
+            "title": "商品管理",
+            "icon": "&#xe63b;",
+            "href": "page/good/goodList.html",
+            "spread": false
+        },
+        {
+            "title": "订单管理",
+            "icon": "&#xe62d;",
+            "href": "page/order/order.html",
+            "spread": false
+        }
+    ]
+}
