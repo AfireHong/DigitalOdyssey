@@ -38,6 +38,7 @@
             $sql = 'SELECT * FROM cate';
             $res = $mySQLi->query($sql);
             $res_arr = $res->fetch_all(MYSQLI_ASSOC);
+            $responseData["count"] = $res->num_rows;
             $responseData["data"] = $res_arr;
             echo json_encode($responseData);
             break;

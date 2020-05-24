@@ -115,7 +115,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
             ]
         });
         //删除商品
-        table.on('tool(goodList)', function () {
+        table.on('tool(goodList)', function (obj) {
             var layEvent = obj.event,
                 data = obj.data;
 
@@ -174,19 +174,11 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
         $(".addNews_btn").click(function () {
             addGood();
         });
-        $(".addCate_btn").click(function () {
-            layer.prompt(function (val, index) {
-                $.post('goodAPI.php?op=addCate', {
-                    cateName : val
-                },function (res) {
-                    
-                })
-                //layer.close(index);
-            });
-        });
+        
         $(".Cate_btn").click(function () {
             var index = layui.layer.open({
-                title: "添加商品",
+                title: "添加分类",
+                area: ['500px', '450px'],
                 type: 2,
                 content: "cateList.html"
             });

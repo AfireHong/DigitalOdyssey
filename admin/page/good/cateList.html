@@ -15,13 +15,19 @@
 <body class="childrenBody">
     <blockquote class="layui-elem-quote">
         分类管理
+        <div class="layui-inline" style='margin-left: 20px;'>
+            <a class="layui-btn layui-btn-normal addCate_btn">添加分类</a>
+        </div>
     </blockquote>
     <table id="cateList" lay-filter="cateList"></table>
     <!-- 操作栏 -->
     <script type="text/html" id="goodListBar">
         <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
     </script>
-
+    <script type="text/html" id="cateListBar">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+    </script>
     <script type="text/javascript" src="../../layui/layui.js"></script>
     <script type="text/javascript" src="cateList.js"></script>
 </body>
