@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>用户添加</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+<form class="layui-form" style="width:90%;">
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">用户ID</label>
+		<div class="layui-input-block"  >
+			<input type="text" class="layui-input user_id" placeholder="用户ID" readonly="readonly"
+				disabled="disabled">
+		</div>
+	</div>
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">用户名</label>
+		<div class="layui-input-block">
+			<input type="text" class="layui-input username" lay-verify="required" placeholder="请输入用户名">
+		</div>
+	</div>
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">手机号</label>
+		<div class="layui-input-block">
+			<input type="text" class="layui-input tel" lay-verify="required" placeholder="请输入手机号">
+		</div>
+	</div>
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">密码</label>
+		<div class="layui-input-block">
+			<input type="text" class="layui-input password" lay-verify="required" placeholder="请输入密码">
+		</div>
+	</div>
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<label class="layui-form-label">邮箱</label>
+		<div class="layui-input-block">
+			<input type="text" class="layui-input email" lay-verify="email" placeholder="请输入邮箱">
+		</div>
+	</div>
+	<div class="layui-row">
+		<div class="magb15 layui-col-md4 layui-col-xs12">
+			<label class="layui-form-label">状态</label>
+			<div class="layui-input-block">
+				<select name="status" class="status" lay-filter="userStatus">
+					<option value="1">正常使用</option>
+					<option value="0">限制用户</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item layui-row layui-col-xs12">
+		<div class="layui-input-block">
+			<button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addUser">添加/修改</button>
+			<button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">清空</button>
+		</div>
+	</div>
+</form>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="userAdd.js"></script>
+</body>
+</html>
