@@ -22,12 +22,6 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
                     
                 },
                 {
-                    field: 'img_url',
-                    title: '图片',
-                    align: "center",
-                    width: 100
-                },
-                {
                     field: 'user_id',
                     title: '用户ID',
                     align: "center",

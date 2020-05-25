@@ -10,7 +10,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
             url: 'goodApi.php?op=getGood',
             cellMinWidth: 80,
             page: true,
-            height: "full-125",
+            height: "full-100",
             limits: [20, 40, 80, 120],
             limit: 20,
             id: "goodListTable",
@@ -146,7 +146,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
             var index = layui.layer.open({
                 title: "添加商品",
                 type: 2,
-                content: "goodinfo.html",
+                content: "addGood.html",
                 success: function (layero, index) {
                     var body = layui.layer.getChildFrame('body', index);
                     if (edit) {

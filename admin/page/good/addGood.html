@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>商品添加</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../css/public.css" media="all" />
+</head>
+
+<body class="childrenBody">
+	<form class="layui-form layui-row">
+		<div class="layui-col-md3 layui-col-xs5">
+			<div class="layui-upload-list thumbBox mag0 magt3">
+				<img class="layui-upload-img thumbImg">
+			</div>
+		</div>
+		<div class="layui-col-md6 layui-col-xs12">
+			<div class="layui-form-item">
+				<label class="layui-form-label">商品名</label>
+				<div class="layui-input-block">
+					<input type="text" value="" placeholder="请输入商品名" lay-verify="required" class="layui-input goodName">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">商品描述</label>
+				<div class="layui-input-block">
+					<input type="text" value="" placeholder="请输入商品描述" lay-verify="required"
+						class="layui-input goodName">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label"> 分类</label>
+				<div class="layui-input-block newsStatus">
+					<select name="status" lay-verify="required" id="cateList">
+						<!-- 这里动态获取下拉框信息 -->
+						<option value="0">分类1</option>
+						<option value="1">分类2</option>
+						<option value="2">分类3</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item" pane="">
+				<label class="layui-form-label">是否热门</label>
+				<div class="layui-input-block is_hot">
+					<input type="radio" name="sex" value="热门" title="热门" checked="">
+					<input type="radio" name="sex" value="普通" title="普通">
+				</div>
+			</div>
+			<div class="layui-form-item" pane="">
+				<label class="layui-form-label">是否推荐</label>
+				<div class="layui-input-block is_rec">
+					<input type="radio" name="sex" value="推荐" title="推荐" checked="">
+					<input type="radio" name="sex" value="普通" title="普通">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<div class="layui-input-block">
+					<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
+					<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="addGood.js"></script>
+	<script type="text/javascript" src="../../js/cacheUserInfo.js"></script>
+</body>
+</html>
