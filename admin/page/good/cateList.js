@@ -34,7 +34,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
                 },
                 {
                     title: '操作',
-                    Width: 150,
+                    Width: 120,
                     templet: '#cateListBar',
                     fixed: "right",
                     align: "center"
