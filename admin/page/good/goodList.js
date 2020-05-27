@@ -122,7 +122,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
         if (layEvent === 'edit') { //编辑
             addUser(data);
         } else if (layEvent === 'del') { //删除
-            layer.confirm('确定删除此商品？' + data.tel, {
+            layer.confirm('确定删除此商品？' + data.goods_name, {
                 icon: 3,
                 title: '提示信息'
             }, function (index) {
