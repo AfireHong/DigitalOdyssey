@@ -42,11 +42,11 @@
     </script>
     <!-- 表头开关 -->
     <script type="text/html" id="switchTpl1">
-        <input type="checkbox" name="is_hot" id="is_hot" value="{{d.goods_id}}" lay-skin="switch" lay-text="热门|非热"
+        <input type="checkbox" name="is_hot" id="is_hot" value="{{d.goods_id}}" lay-skin="switch" lay-text="是|否"
             lay-filter="is_hot" {{ d.is_hot== 1 ? 'checked' : '' }}>
     </script>
     <script type="text/html" id="switchTpl2">
-        <input type="checkbox" name="is_rec" id="is_rec" value="{{d.goods_id}}" lay-skin="switch" lay-text="推荐|非推"
+        <input type="checkbox" name="is_rec" id="is_rec" value="{{d.goods_id}}" lay-skin="switch" lay-text="是|否"
             lay-filter="is_rec" {{ d.is_rec== 1 ? 'checked' : '' }}>
     </script>
     <script type="text/html" id="switchTpl3">

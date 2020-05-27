@@ -34,7 +34,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
                 },
                 {
                     title: '操作',
-                    Width: 150,
+                    Width: 120,
                     templet: '#cateListBar',
                     fixed: "right",
                     align: "center"
@@ -46,7 +46,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
         layer.prompt({
             title: '请输入分类名'
         },function (val, index) {
-            layer.confirm('确定添加分类'+val+'?', function () {
+            layer.confirm('确定添加分类：‘'+val+'’?', function () {
                 //do something
                 $.post('goodAPI.php?op=addCate', {
                     cateName: val
