@@ -25,7 +25,7 @@ $result1 = $stmt_num->get_result();
 $records = $result1->num_rows;
 $pages = ceil($records / $pagesize);
 
-
+//获取分类
 $stmt_goods = $mySQLi->init();
 if ($_GET['cate_id']) {
     $sql2 = "SELECT goods.goods_id, goods.goods_name, goods.max_price, img.img_url 
@@ -68,9 +68,10 @@ $cateList = $reslut3->fetch_all(MYSQLI_ASSOC);
                                 <div class="filter-item">
                                     <h3>分类</h3>
                                     <?php
-                                    foreach ($cateList as $cate)
-                                        echo '<div class="form-check"><input class="form-check-input" type="radio" value="' . $cate['cate_id'] . '" name = "cate-radio"><label class="form-check-label" for="formCheck-1">' . $cate['cate_name'] . '</label></div>';
+                                    foreach ($cateList as $cate) :
                                     ?>
+                                        <div class="form-check"><input class="form-check-input" type="radio" value="<?php echo $cate['cate_id'] ?>" name="cate-radio" <?php if ($cate['cate_id'] == $_GET['cate_id']) echo 'checked'; ?>><label class="form-check-label" for="formCheck-1"><?php echo $cate['cate_name']; ?></label></div>
+                                    <?php endforeach; ?>
                                 </div>
                                 <button type="button" class="btn btn-primary" id="cate">筛选</button>
                                 <!-- <div class="filter-item">
@@ -90,9 +91,10 @@ $cateList = $reslut3->fetch_all(MYSQLI_ASSOC);
                                     <div class="filter-item">
                                         <h3>分类</h3>
                                         <?php
-                                        foreach ($cateList as $cate)
-                                            echo '<div class="form-check"><input class="form-check-input" type="radio" value="' . $cate['cate_id'] . '" name = "cate-radio"><label class="form-check-label" for="formCheck-1">' . $cate['cate_name'] . '</label></div>';
+                                        foreach ($cateList as $cate) :
                                         ?>
+                                            <div class="form-check"><input class="form-check-input" type="radio" value="<?php echo $cate['cate_id'] ?>" name="cate-radio" <?php if ($cate['cate_id'] == $_GET['cate_id']) echo 'checked'; ?>><label class="form-check-label" for="formCheck-1"><?php echo $cate['cate_name']; ?></label></div>
+                                        <?php endforeach; ?>
                                     </div>
                                     <!-- <div class="filter-item">
                                         <h3>品牌</h3>
