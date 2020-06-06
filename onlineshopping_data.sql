@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 28/05/2020 10:01:57
+ Date: 06/06/2020 20:31:25
 */
 
 SET NAMES utf8mb4;
@@ -22,18 +22,21 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address`  (
-  `add_id` int(11) NOT NULL COMMENT '地址id',
+  `add_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '地址id',
   `user_id` int(11) NOT NULL COMMENT '用户id',
-  `address` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '地址',
-  `receiver` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '收件人',
-  `tel` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '电话',
-  `post` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '邮编',
-  PRIMARY KEY (`add_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `receiver` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收件人',
+  `tel` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
+  `post` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮编',
+  PRIMARY KEY (`add_id`) USING BTREE,
+  INDEX `user_id1`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of address
 -- ----------------------------
+INSERT INTO `address` VALUES (5, 100008, 'qwer1234', '彭迈宏', '13012345678', '123412');
+INSERT INTO `address` VALUES (8, 100008, 'hnie', 'pmh', '123123', '123123');
 
 -- ----------------------------
 -- Table structure for admin
@@ -41,8 +44,8 @@ CREATE TABLE `address`  (
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin`  (
   `admin_id` int(11) NOT NULL,
-  `admin` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `admin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`admin_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -76,7 +79,7 @@ INSERT INTO `cate` VALUES (14, '测试');
 -- ----------------------------
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods`  (
-  `goods_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品id',
+  `goods_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '商品id',
   `goods_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '商品名',
   `cate_id` int(10) NULL DEFAULT NULL COMMENT '分类id',
   `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '品牌',
@@ -88,103 +91,105 @@ CREATE TABLE `goods`  (
   `is_rec` tinyint(1) NULL DEFAULT 0 COMMENT '是否推荐 0否 1是',
   `is_up` tinyint(1) NULL DEFAULT 1 COMMENT '是否上架 0否 1是',
   `status` tinyint(1) NULL DEFAULT 0 COMMENT '是否放入回收站 0否 1是',
-  PRIMARY KEY (`goods_id`) USING BTREE
+  PRIMARY KEY (`goods_id`) USING BTREE,
+  INDEX `cate`(`cate_id`) USING BTREE,
+  CONSTRAINT `cate` FOREIGN KEY (`cate_id`) REFERENCES `cate` (`cate_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 100092 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (100001, '华硕(ASUS) 天选 15.6英寸游戏笔记本电脑', 1, '华硕', NULL, 6099.00, NULL, '新锐龙 7nm 8核 R7-4800H 8G 512GSSD GTX1650Ti 4G 144Hz', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100002, '华为(HUAWEI)MateBook 13 2020款全面屏轻薄性能笔记本电脑', 1, '华为', NULL, 5999.00, NULL, '十代酷睿(i5 16G 512G MX250 触控屏 多屏协同)银', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100003, '荣耀MagicBook Pro 16.1英寸全面屏轻薄高性能笔记本电脑', 1, '华为', NULL, 4599.00, NULL, '标压锐龙R5 3550H 16G 512G 100%sRGB Win10 银', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100004, '华为(HUAWEI)MateBook X Pro 2020款 13.9英寸超轻薄全面屏笔记本电脑', 1, '华为', NULL, 9999.00, NULL, '十代酷睿i7 16G+512G 独显 3K触控 粉', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100005, 'Apple iPad 平板电脑 2019年新款10.2英寸', 2, 'Apple', NULL, 2999.00, NULL, '128G WLAN版/iPadOS系统/Retina显示屏/MW792CH/A 金色', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100006, 'Apple iPad Air 3 2019年新款平板电脑 10.5英寸', 2, 'Apple', NULL, 3896.00, NULL, '64G WLAN版/A12芯片/Retina显示屏/MUUK2CH/A 银色', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100007, 'Apple iPad Pro 11英寸平板电脑 2020年新款', 2, 'Apple', NULL, 6229.00, NULL, '128G WLAN版/全面屏/A12Z/Face ID/MY232CH/A 深空灰色', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100008, 'Apple Watch Series 5智能手表', 4, 'Apple', NULL, 3399.00, NULL, 'GPS款 44毫米深空灰色铝金属表壳 黑色运动型表带 MWVF2CH/A', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100009, 'Apple 2020新款 MacBook Air 13.3', 1, 'Apple', NULL, 7999.00, NULL, 'Retina屏 十代i3 8G 256G SSD 银色 笔记本电脑 轻薄本', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100010, 'Apple 2019款 MacBook Pro 13.3【带触控栏】', 1, 'Apple', NULL, 11088.00, NULL, '八代i5 8G 256G RP645显卡 深空灰 笔记本电脑', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100011, '索尼（SONY）Alpha 6000L APS-C微单数码相机标准套装', 5, 'SONY', NULL, 3599.00, NULL, '黑色（约2430万有效像素 E PZ 16-50mm镜头 a6000）', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100012, '索尼（SONY）Alpha 7 II 全画幅微单数码相机 ', 5, 'SONY', NULL, 6999.00, NULL, '单机身(约2430万有效像素 1080P录像 wifi直连 a7M2/A72)', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100013, '索尼（SONY）Alpha 7R II 全画幅微单数码相机', 5, 'SONY', NULL, 9999.00, NULL, '单机身（约4240万有效像素 4K视频 5轴防抖 A7RM2/a7r2）', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100014, '索尼（SONY）Alpha 7 III 全画幅微单数码相机 SEL2470Z蔡司镜头套装', 5, 'SONY', NULL, 19299.00, NULL, '约2420万有效像素 5轴防抖 a7M3/A73', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100015, '佳能（Canon）EOS 800D 单反相机 单反机身 单反套机', 5, 'Canon', NULL, 4999.00, NULL, 'EF-S 18-55mm f/4-5.6 IS STM 单反镜头', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100016, '佳能（Canon）EOS 80D 单反相机 单反套机', 5, 'Canon', NULL, 8299.00, NULL, 'EF-S 18-200mm f/3.5-5.6 IS 单反镜头', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100017, '佳能（Canon）EOS 6D Mark II 6D2 单反相机 单反套机', 5, 'Canon', NULL, 14499.00, NULL, '全画幅（EF 24-105mm f/4L IS II USM 单反镜头）', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100018, '佳能（Canon）EOS 90D 单反相机 单反套机', 5, 'Canon', NULL, 9699.00, NULL, 'EF-S 18-200mm f/3.5-5.6 IS 单反镜头', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100019, 'Beats Studio3 Wireless 录音师无线3', 4, 'Beats', NULL, 1748.00, NULL, '头戴式 蓝牙无线降噪耳机 游戏耳机 - 桀骜黑红（十周年版）', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100020, 'Beats X 蓝牙无线 入耳式耳机', 4, 'Beats', NULL, 699.00, NULL, '带麦可通话 -桀骜黑红（十周年版）', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100021, 'Beats Powerbeats Pro', 4, 'Beats', NULL, 1698.00, NULL, '完全无线高性能耳机 真无线蓝牙运动耳机 象牙白', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100022, '联想(Lenovo)拯救者Y7000P 英特尔酷睿i5 15.6英寸游戏笔记本电脑', 1, '联想(Lenovo)', NULL, 7299.00, NULL, 'i5-9300HF 16G 1TSSD GTX1660Ti 144Hz 竞技版', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100023, '联想(Lenovo)小新Air14 2020性能版 英特尔酷睿i5 全面屏独显轻薄笔记本电脑', 1, '联想(Lenovo)', NULL, 5499.00, NULL, 'i5 16G 512G MX350 100%sRGB 银', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100024, '联想(Lenovo)YOGA S740 英特尔酷睿i7 14英寸超轻薄商务办公笔记本电脑', 1, '联想(Lenovo)', NULL, 6899.00, NULL, 'i7 16G 512G MX250独显 雷电3接口 灰', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100025, '联想(Lenovo)小新15 2020英特尔酷睿i7 15.6英寸全面屏独显轻薄笔记本电脑', 1, '联想(Lenovo)', NULL, 6499.00, NULL, '十代i7 16G 512G MX350高色域 银', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100026, '联想(Lenovo)小新Pro13 2020 英特尔酷睿i5高性能轻薄独显笔记本电脑', 1, '联想(Lenovo)', NULL, 6299.00, NULL, 'i5 16G 512G MX350 100%sRGB  沧海冰蓝', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100027, '联想(Lenovo)小新Pro13锐龙版 性能网课办公轻薄笔记本电脑', 1, '联想(Lenovo)', NULL, 4999.00, NULL, '标压R5-3550H 16G 512G 人脸识别 100%sRGB 银', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100028, '联想ThinkPad E14 十代英特尔酷睿i5/i7 14英寸商务办公轻薄笔记本电脑', 1, '联想ThinkPad', NULL, 6799.00, NULL, '十代i7 8G 512GSSD 独显 2LCD', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100029, '联想ThinkBook 14英特尔酷睿i5 14英寸轻薄笔记本电脑', 1, '联想ThinkPad', NULL, 4999.00, NULL, '十代酷睿i5 8G 512G傲腾增强型SSD 2G独显', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100030, 'Ins 15 35Work BtCIns 15 3580 20Q11W Microsoft 无Office', 1, '戴尔', 0, 2983.00, NULL, 'Celeron 4205U, 1TB HDD, 4GB', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100031, 'XPS 7390XPS 13 7390 20Q31', 1, '戴尔', 0, 10437.00, NULL, 'Core-i5, 256GB SSD, 8GB', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100032, 'Ins 14 5490Ins 14 5490 20Q31S 1', 1, '戴尔', 0, 5017.00, NULL, 'Core i5, 256GB SSD, 8GB', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100033, 'Dell G5 15 5000 15.6 Inch FHD IPS Gaming Laptop - ( Black)', 1, '戴尔', 0, 7686.00, NULL, 'Intel Core i5-9300H, 8 GB RAM, 128 GB SSD + 1TB HDD', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100034, '	Ins 13 5391Ins 13 5391 20Q32S', 1, '戴尔', 0, 5704.00, NULL, 'Core i5, 256GB SSD, 8GB', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100035, 'Dell Inspiron 15 3567 FHD 笔记本电脑3585-4610', 1, '戴尔', 0, 3724.00, NULL, 'AMD Ryzen 5-2500U, 8 GB RAM 15.6 Inch', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100036, 'Dell Inspiron 15 防眩光 LED 背光2019 笔记本电脑', 1, '戴尔', 0, 2236.00, NULL, 'J5MHN Intel Pentium Silver N5000, 4 GB 14.0 Inch', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100037, 'Dell Inspiron 3000 3185 11.6 英寸笔记本电脑 PC', 1, '戴尔', 0, 3805.00, NULL, 'AMD A6-9220e，4GB 内存，32GB EMMC 存储，灰色，Windows 10', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100038, 'G7 17 7790Dell G7 17 7790 20Q23 3', 1, '戴尔', 0, 11601.00, NULL, 'Core i7, RTX2060, 256GB+1TB, 16GB', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100039, '	Dell Inspiron 15 防眩光 LED 背光 2019 笔记本电脑Dell Inspiron 14 3493', 1, '戴尔', 0, 4076.00, NULL, 'Intel i5, 8 GB RAM 14 Inch', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100040, '	Dell Inspiron 5000 Full HD 笔记本电脑', 1, '戴尔', 0, 7710.00, NULL, 'Intel Core i7-10510U, 8 GB RAM 14 Inch	', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100041, '戴尔Dell游戏笔记本电脑G7', 1, '戴尔', 0, 11055.00, NULL, 'Core i7, GTX1660Ti, 256GB+1TB, 16GB', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100042, 'Dell 笔记本电脑 Inspiron 15 5575Ins 15 5575 19Q33B Microsoft Office', 1, '戴尔', 0, 8145.00, NULL, 'AMD Ryzen 7, SSD512GB, 16GB', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100043, 'Dell Inspiron 15 防眩光 LED 背光 2019 笔记本电脑', 1, '戴尔', 0, 2599.00, NULL, 'Dell Inspiron 14 3493 Intel i3, 4 GB RAM 14 Inch', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100044, 'Ins 13 5391Ins 13 5391 20Q31S 1', 1, '戴尔', 0, 4782.00, NULL, 'Core i3, 128GB SSD, 4GB', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100045, 'Ins 13 5391Ins 13 5391 20Q33S 4', 1, '戴尔', 0, 7609.00, NULL, 'Core i7, 512GB SSD, 8GB, MX250', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100046, 'HP 笔记本电脑14-cm0042na A4', 1, '惠普', 0, 2006.00, NULL, ' 4 GB RAM, 64 GB eMMC 14 Inch', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100047, 'HP 惠普 17-by3235ng ( 17.3 英寸 / 高清 ) 笔记本电脑', 1, '惠普', 0, 3626.00, NULL, '英特尔酷睿 i3-1005G1 双 , 8GB DDR4 内存 , 512GB 固态硬盘 , 英特尔超高清显卡 G，Windows 10 ) 银色', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100048, 'HP Pavilion 15.6英寸FHD IPS触摸屏WLED背光笔记本电脑', 1, '惠普', 0, 6289.00, NULL, '英特尔四核i7-1065G7高达3.9GHz，12GB DDR4，1TB硬盘，背光键盘，网络摄像头，Windows 10带配件包15 1TB HDD', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100049, 'HP 惠普 Chromebook ( 12 英寸 / HD+ 触摸屏) 可转换笔记本电脑', 1, '惠普', 0, 2485.00, NULL, '银色12b-ca0000ng 12 Zoll HD+', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100050, 'HP 惠普 Pavilion （14 英寸 / 全高清）笔记本电脑', 1, '惠普', 0, 3905.00, NULL, '银色，指纹传感器14-ce3010ng Intel UHD Grafik mit Fingerabdrucksensor 256GB SSD + 16GB Intel Optane', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100051, '全新 2020 HP 15.6 英寸高清触摸屏笔记本电脑', 1, '惠普', 0, 6156.00, NULL, '英特尔酷睿 i7-1065G7 8GB DDR4 RAM 512GB SSD HDMI 802.11b/g/n/ac Windows 10 银色 15-dy1771ms', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100052, 'HP X360 2019 Gemcut 笔记本电脑', 1, '惠普', 0, 10781.00, NULL, ' i7，16 GB RAM，512GB SSD，Windows 10，HDMI，USB C，触摸屏，B&O 扬声器，3 年 Mcafee 互联网*13TGEMCUT 1TB SSD | 16GB RAM | WINPRO', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100053, 'HP 惠普 Envy 17-cg0278ng 白色笔记本电脑', 1, '惠普', 0, 10424.00, NULL, '43.9厘米（17.3英寸）3840 x 2160 像素 英特尔® 酷睿TM i7 16 GB DDR4-SDRAM 1000 GB SSD NVIDIA GeForce MX330 Wi-Fi 6（802.11ax）Win 10 H', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100054, 'HP 惠普 Envy 17-cg0004ng 银色笔记本电脑', 1, '惠普', 0, 8468.00, NULL, '43.9厘米（17.3英寸）1920 x 1080 像素 英特尔®酷睿TM i7 16 GB DDR4-SDRAM 512 GB SSD NVIDIA GeForce MX330 Wi-Fi 6（802.11ax）Win 10 H', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100055, 'HP 惠普 EliteBook x360', 1, '惠普', 0, 11222.00, NULL, '1040 G5 Intel i7-8550U 35.6 厘米 14\" FHD BV UWVA AG 16GB 512GB/SSD UMA W10P', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100056, 'HP 惠普 250 G7 (15.6 英寸 / HD) 商务笔记本电脑', 1, '惠普', 0, 2796.00, NULL, '（英特尔奔腾 4417U，8 GB DDR4 内存，512 GB SDD，英特尔高清显卡，DVD刻录机，Windows 10 家庭版）银色', 1, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100057, 'HP 惠普 250 G7（15.6英寸 / FHD）商务笔记本电脑', 1, '惠普', 0, 3122.00, NULL, '英特尔酷睿i38130U，8GB DDR4 内存，128GB SDD，1TB 硬盘，英特尔高清显卡，DVD刻录机，Windows 10家庭版）银色', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100058, '	HP 惠普 14s-dq1014ns 14 英寸 FHD 笔记本电脑', 1, '惠普', 0, 3870.00, NULL, '英特尔酷睿 i7-1065G7，8 GB 内存，512 GB 固态硬盘，集成显卡，无操作系统） 灰色 – 西班牙 QWERTY 键盘', 0, 1, 1, 0);
-INSERT INTO `goods` VALUES (100059, 'HP 惠普 Probook 470 G7 ( 17.3 英寸 / FHD ) 商务笔记本电脑', 1, '惠普', 0, 6552.00, NULL, '英特尔酷睿 i7-10510U，16GB DDR4 内存，256GB 固态硬盘，1TB 硬盘，英特尔超高清显卡620，Windows 10 Pro）银色', 0, NULL, 1, 0);
-INSERT INTO `goods` VALUES (100060, 'HP 惠普 Probook 470 G7 ( 17.3 英寸 / FHD ) 商务笔记本电脑', 1, '惠普', 0, 6093.00, NULL, '英特尔i7-10510U , 8GB DDR4 内存 , 512GB 固态硬盘 , 1TB 硬盘 , 英特尔超高清显卡 620，Windows 10 Pro ) 银色', 1, 1, 1, 0);
-INSERT INTO `goods` VALUES (100061, '华为 HUAWEI nova 7 Pro', 3, '华为', 0, 3699.00, 0.00, '3200万追焦双摄 50倍潜望式变焦四摄 5G SoC芯片 8GB+128GB 7号色全网通5G手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100062, '华为 HUAWEI P40', 3, '华为', 0, 4188.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡三摄 30倍数字变焦 6GB+128GB亮黑色全网通5G手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100063, '华为 HUAWEI P40 Pro', 3, '华为', 0, 6488.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡四摄 50倍数字变焦 8GB+256GB亮黑色全网通5G手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100064, '华为 HUAWEI nova 7 SE 5G', 3, '华为', 0, 2399.00, 0.00, '麒麟820 5G SoC芯片 6400万高清AI四摄 40W超级快充 8GB+128GB 幻夜黑全网通手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100065, '华为 HUAWEI Mate 30 5G', 3, '华为', 0, 4499.00, 0.00, '麒麟990 4000万超感光徕卡影像双超级快充8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100066, '华为 HUAWEI Mate 30 Pro 5G', 3, '华为', 0, 5899.00, 0.00, '麒麟990 OLED环幕屏双4000万徕卡电影四摄8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100067, '小米10', 3, '小米', 0, 4299.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 对称式立体声 8GB+256GB 冰海蓝 拍照智能游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100068, 'Redmi K30 Pro 5G先锋', 3, '小米 红米', 0, 3399.00, 0.00, '骁龙865旗舰处理器 弹出式超光感全面屏 索尼6400万高清四摄 4700mAh长续航 33W闪充 8GB+128GB 天际蓝 游戏智能手机 小米 红米', 1, 0, 1, 0);
-INSERT INTO `goods` VALUES (100069, 'Redmi Note8', 3, '小米 红米', 0, 899.00, 0.00, '4800万全场景四摄 4000mAh长续航 高通骁龙665 18W快充 4GB+64GB 梦幻蓝 游戏手机 小米 红米', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100070, '小米10青春版', 3, '小米', 0, 2499.00, 0.00, '双模5G 骁龙765G 50倍潜望式变焦四摄 8GB+128GB 蓝莓薄荷游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100071, '小米10 Pro', 3, '小米', 0, 4999.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 50倍变焦 50W快充 8GB+256GB 珍珠白 拍照智能游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100072, 'Apple iPhone SE (A2298)', 3, 'Apple', 0, 3799.00, 0.00, '128GB 黑色 移动联通电信4G手机', 1, 0, 1, 0);
-INSERT INTO `goods` VALUES (100073, 'Apple iPhone XR (A2108)', 3, 'Apple', 0, 4299.00, 0.00, '64GB 黄色 移动联通电信4G手机 双卡双待', 1, 0, 1, 0);
-INSERT INTO `goods` VALUES (100074, 'Apple iPhone XS Max (A2104)', 3, 'Apple', 0, 6099.00, 0.00, '64GB 银色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100075, 'Apple iPhone 11 (A2223)', 3, 'Apple', 0, 5499.00, 0.00, '64GB 紫色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100076, 'Apple iPhone 11 Pro (A2217)', 3, 'Apple', 0, 8699.00, 0.00, '64GB 金色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100077, 'Apple iPhone 11 Pro Max (A2220)', 3, 'Apple', 0, 9599.00, 0.00, '64GB 深空灰色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100078, '一加 OnePlus 8', 3, '一加', 0, 4599.00, 0.00, '5G旗舰 90Hz高清柔性屏 骁龙865 180g轻薄手感 12GB+256GB 黑镜 超清超广角拍照游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100079, '一加 OnePlus 8 Pro', 3, '一加', 0, 5999.00, 0.00, '5G旗舰 2K+120Hz 柔性屏 30W无线闪充 骁龙865 12GB+256GB 青空 超清超广角拍照游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100080, '一加 OnePlus 7T', 3, '一加', 0, 3199.00, 0.00, '90Hz流体屏 骁龙855Plus旗舰 4800万超广角三摄  8GB+256GB 冰际蓝 游戏手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100081, 'vivo X30 Pro 5G', 3, 'vivo', 0, 3698.00, 0.00, '秘银 8GB+128GB 双模5G 60倍变焦 50mm专业人像镜头 全网通智慧旗舰手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100082, 'vivo S6 5G手机', 3, 'vivo', 0, 2698.00, 0.00, '8GB+128GB 天鹅湖 前置3200万超清夜景自拍 4500mAh大电池 后置四摄 双模5G全网通手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100083, 'vivo NEX 3S', 3, 'vivo', 0, 5298.00, 0.00, '5G 12GB+256GB 深空流光 骁龙865 无界瀑布屏 6400万超高像素 双模5G全网通手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100084, 'vivo iQOO Neo3 5G', 3, 'vivo', 0, 2998.00, 0.00, '8GB+128GB 夜幕黑 高通骁龙865 144Hz竞速屏 立体双扬 44W闪充 双模5G全网通手机', 1, 0, 1, 0);
-INSERT INTO `goods` VALUES (100085, 'vivo iQOO 3 5G', 3, 'vivo', 0, 3998.00, 0.00, '12GB+128GB 驭影黑 高通骁龙865 55W超快闪充 专业电竞游戏体验手机 双模5G全网通手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100086, 'OPPO Ace2 8+128', 3, 'oppo', 0, 3999.00, 0.00, '月岩灰双模5G 185g超薄机身 65W超级闪充 40W无线闪充 90Hz电竞屏高通骁龙865游戏智能手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100087, 'OPPO Find X2', 3, 'oppo', 0, 5499.00, 0.00, '超感官旗舰 3K分辨率 120Hz超感屏 多焦段影像系统 骁龙865 65w闪充 8GB+128GB碧波 双模5G手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100088, 'OPPO Reno3 Pro', 3, 'oppo', 0, 3699.00, 0.00, '双模5G 视频双防抖 90HZ高感曲面屏 7.7mm轻薄机身 8GB+128GB 日出印象 拍照游戏视频手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100089, 'OPPO Reno3', 3, 'oppo', 0, 2999.00, 0.00, '双模5G 6400万超清四摄 视频双防抖 7.96mm纤薄机身 8GB+128GB 蓝色星夜全网通拍照游戏视频手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100090, 'OPPO A91', 3, 'oppo', 0, 1799.00, 0.00, '8GB+128GB 暗夜星辰 4800万超清四摄 VOOC闪充3.0 光感屏幕指纹 全网通4G 全面屏拍照游戏智能手机', 0, 0, 1, 0);
-INSERT INTO `goods` VALUES (100091, 'OPPO Reno2 Z', 3, 'oppo', 0, 2299.00, 0.00, '8G+128G 深海夜光 4800万夜拍四摄 VOOC闪充 炫彩升降 全网通4G 全面屏拍照游戏智能手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100001, '华硕(ASUS) 天选 15.6英寸游戏笔记本电脑', 1, '华硕', 100, 6099.00, NULL, '新锐龙 7nm 8核 R7-4800H 8G 512GSSD GTX1650Ti 4G 144Hz', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100002, '华为(HUAWEI)MateBook 13 2020款全面屏轻薄性能笔记本电脑', 1, '华为', 100, 5999.00, NULL, '十代酷睿(i5 16G 512G MX250 触控屏 多屏协同)银', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100003, '荣耀MagicBook Pro 16.1英寸全面屏轻薄高性能笔记本电脑', 1, '华为', 100, 4599.00, NULL, '标压锐龙R5 3550H 16G 512G 100%sRGB Win10 银', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100004, '华为(HUAWEI)MateBook X Pro 2020款 13.9英寸超轻薄全面屏笔记本电脑', 1, '华为', 100, 9999.00, NULL, '十代酷睿i7 16G+512G 独显 3K触控 粉', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100005, 'Apple iPad 平板电脑 2019年新款10.2英寸', 2, 'Apple', 100, 2999.00, NULL, '128G WLAN版/iPadOS系统/Retina显示屏/MW792CH/A 金色', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100006, 'Apple iPad Air 3 2019年新款平板电脑 10.5英寸', 2, 'Apple', 100, 3896.00, NULL, '64G WLAN版/A12芯片/Retina显示屏/MUUK2CH/A 银色', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100007, 'Apple iPad Pro 11英寸平板电脑 2020年新款', 2, 'Apple', 100, 6229.00, NULL, '128G WLAN版/全面屏/A12Z/Face ID/MY232CH/A 深空灰色', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100008, 'Apple Watch Series 5智能手表', 4, 'Apple', 100, 3399.00, NULL, 'GPS款 44毫米深空灰色铝金属表壳 黑色运动型表带 MWVF2CH/A', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100009, 'Apple 2020新款 MacBook Air 13.3', 1, 'Apple', 100, 7999.00, NULL, 'Retina屏 十代i3 8G 256G SSD 银色 笔记本电脑 轻薄本', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100010, 'Apple 2019款 MacBook Pro 13.3【带触控栏】', 1, 'Apple', 100, 11088.00, NULL, '八代i5 8G 256G RP645显卡 深空灰 笔记本电脑', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100011, '索尼（SONY）Alpha 6000L APS-C微单数码相机标准套装', 5, 'SONY', 100, 3599.00, NULL, '黑色（约2430万有效像素 E PZ 16-50mm镜头 a6000）', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100012, '索尼（SONY）Alpha 7 II 全画幅微单数码相机 ', 5, 'SONY', 100, 6999.00, NULL, '单机身(约2430万有效像素 1080P录像 wifi直连 a7M2/A72)', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100013, '索尼（SONY）Alpha 7R II 全画幅微单数码相机', 5, 'SONY', 100, 9999.00, NULL, '单机身（约4240万有效像素 4K视频 5轴防抖 A7RM2/a7r2）', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100014, '索尼（SONY）Alpha 7 III 全画幅微单数码相机 SEL2470Z蔡司镜头套装', 5, 'SONY', 100, 19299.00, NULL, '约2420万有效像素 5轴防抖 a7M3/A73', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100015, '佳能（Canon）EOS 800D 单反相机 单反机身 单反套机', 5, 'Canon', 100, 4999.00, NULL, 'EF-S 18-55mm f/4-5.6 IS STM 单反镜头', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100016, '佳能（Canon）EOS 80D 单反相机 单反套机', 5, 'Canon', 100, 8299.00, NULL, 'EF-S 18-200mm f/3.5-5.6 IS 单反镜头', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100017, '佳能（Canon）EOS 6D Mark II 6D2 单反相机 单反套机', 5, 'Canon', 100, 14499.00, NULL, '全画幅（EF 24-105mm f/4L IS II USM 单反镜头）', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100018, '佳能（Canon）EOS 90D 单反相机 单反套机', 5, 'Canon', 100, 9699.00, NULL, 'EF-S 18-200mm f/3.5-5.6 IS 单反镜头', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100019, 'Beats Studio3 Wireless 录音师无线3', 4, 'Beats', 100, 1748.00, NULL, '头戴式 蓝牙无线降噪耳机 游戏耳机 - 桀骜黑红（十周年版）', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100020, 'Beats X 蓝牙无线 入耳式耳机', 4, 'Beats', 100, 699.00, NULL, '带麦可通话 -桀骜黑红（十周年版）', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100021, 'Beats Powerbeats Pro', 4, 'Beats', 100, 1698.00, NULL, '完全无线高性能耳机 真无线蓝牙运动耳机 象牙白', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100022, '联想(Lenovo)拯救者Y7000P 英特尔酷睿i5 15.6英寸游戏笔记本电脑', 1, '联想(Lenovo)', 100, 7299.00, NULL, 'i5-9300HF 16G 1TSSD GTX1660Ti 144Hz 竞技版', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100023, '联想(Lenovo)小新Air14 2020性能版 英特尔酷睿i5 全面屏独显轻薄笔记本电脑', 1, '联想(Lenovo)', 100, 5499.00, NULL, 'i5 16G 512G MX350 100%sRGB 银', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100024, '联想(Lenovo)YOGA S740 英特尔酷睿i7 14英寸超轻薄商务办公笔记本电脑', 1, '联想(Lenovo)', 100, 6899.00, NULL, 'i7 16G 512G MX250独显 雷电3接口 灰', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100025, '联想(Lenovo)小新15 2020英特尔酷睿i7 15.6英寸全面屏独显轻薄笔记本电脑', 1, '联想(Lenovo)', 100, 6499.00, NULL, '十代i7 16G 512G MX350高色域 银', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100026, '联想(Lenovo)小新Pro13 2020 英特尔酷睿i5高性能轻薄独显笔记本电脑', 1, '联想(Lenovo)', 100, 6299.00, NULL, 'i5 16G 512G MX350 100%sRGB  沧海冰蓝', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100027, '联想(Lenovo)小新Pro13锐龙版 性能网课办公轻薄笔记本电脑', 1, '联想(Lenovo)', 100, 4999.00, NULL, '标压R5-3550H 16G 512G 人脸识别 100%sRGB 银', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100028, '联想ThinkPad E14 十代英特尔酷睿i5/i7 14英寸商务办公轻薄笔记本电脑', 1, '联想ThinkPad', 100, 6799.00, NULL, '十代i7 8G 512GSSD 独显 2LCD', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100029, '联想ThinkBook 14英特尔酷睿i5 14英寸轻薄笔记本电脑', 1, '联想ThinkPad', 100, 4999.00, NULL, '十代酷睿i5 8G 512G傲腾增强型SSD 2G独显', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100030, 'Ins 15 35Work BtCIns 15 3580 20Q11W Microsoft 无Office', 1, '戴尔', 100, 2983.00, NULL, 'Celeron 4205U, 1TB HDD, 4GB', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100031, 'XPS 7390XPS 13 7390 20Q31', 1, '戴尔', 100, 10437.00, NULL, 'Core-i5, 256GB SSD, 8GB', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100032, 'Ins 14 5490Ins 14 5490 20Q31S 1', 1, '戴尔', 100, 5017.00, NULL, 'Core i5, 256GB SSD, 8GB', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100033, 'Dell G5 15 5000 15.6 Inch FHD IPS Gaming Laptop - ( Black)', 1, '戴尔', 100, 7686.00, NULL, 'Intel Core i5-9300H, 8 GB RAM, 128 GB SSD + 1TB HDD', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100034, '	Ins 13 5391Ins 13 5391 20Q32S', 1, '戴尔', 100, 5704.00, NULL, 'Core i5, 256GB SSD, 8GB', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100035, 'Dell Inspiron 15 3567 FHD 笔记本电脑3585-4610', 1, '戴尔', 100, 3724.00, NULL, 'AMD Ryzen 5-2500U, 8 GB RAM 15.6 Inch', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100036, 'Dell Inspiron 15 防眩光 LED 背光2019 笔记本电脑', 1, '戴尔', 100, 2236.00, NULL, 'J5MHN Intel Pentium Silver N5000, 4 GB 14.0 Inch', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100037, 'Dell Inspiron 3000 3185 11.6 英寸笔记本电脑 PC', 1, '戴尔', 100, 3805.00, NULL, 'AMD A6-9220e，4GB 内存，32GB EMMC 存储，灰色，Windows 10', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100038, 'G7 17 7790Dell G7 17 7790 20Q23 3', 1, '戴尔', 100, 11601.00, NULL, 'Core i7, RTX2060, 256GB+1TB, 16GB', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100039, '	Dell Inspiron 15 防眩光 LED 背光 2019 笔记本电脑Dell Inspiron 14 3493', 1, '戴尔', 100, 4076.00, NULL, 'Intel i5, 8 GB RAM 14 Inch', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100040, '	Dell Inspiron 5000 Full HD 笔记本电脑', 1, '戴尔', 100, 7710.00, NULL, 'Intel Core i7-10510U, 8 GB RAM 14 Inch	', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100041, '戴尔Dell游戏笔记本电脑G7', 1, '戴尔', 100, 11055.00, NULL, 'Core i7, GTX1660Ti, 256GB+1TB, 16GB', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100042, 'Dell 笔记本电脑 Inspiron 15 5575Ins 15 5575 19Q33B Microsoft Office', 1, '戴尔', 100, 8145.00, NULL, 'AMD Ryzen 7, SSD512GB, 16GB', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100043, 'Dell Inspiron 15 防眩光 LED 背光 2019 笔记本电脑', 1, '戴尔', 100, 2599.00, NULL, 'Dell Inspiron 14 3493 Intel i3, 4 GB RAM 14 Inch', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100044, 'Ins 13 5391Ins 13 5391 20Q31S 1', 1, '戴尔', 100, 4782.00, NULL, 'Core i3, 128GB SSD, 4GB', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100045, 'Ins 13 5391Ins 13 5391 20Q33S 4', 1, '戴尔', 100, 7609.00, NULL, 'Core i7, 512GB SSD, 8GB, MX250', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100046, 'HP 笔记本电脑14-cm0042na A4', 1, '惠普', 100, 2006.00, NULL, ' 4 GB RAM, 64 GB eMMC 14 Inch', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100047, 'HP 惠普 17-by3235ng ( 17.3 英寸 / 高清 ) 笔记本电脑', 1, '惠普', 100, 3626.00, NULL, '英特尔酷睿 i3-1005G1 双 , 8GB DDR4 内存 , 512GB 固态硬盘 , 英特尔超高清显卡 G，Windows 10 ) 银色', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100048, 'HP Pavilion 15.6英寸FHD IPS触摸屏WLED背光笔记本电脑', 1, '惠普', 100, 6289.00, NULL, '英特尔四核i7-1065G7高达3.9GHz，12GB DDR4，1TB硬盘，背光键盘，网络摄像头，Windows 10带配件包15 1TB HDD', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100049, 'HP 惠普 Chromebook ( 12 英寸 / HD+ 触摸屏) 可转换笔记本电脑', 1, '惠普', 100, 2485.00, NULL, '银色12b-ca0000ng 12 Zoll HD+', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100050, 'HP 惠普 Pavilion （14 英寸 / 全高清）笔记本电脑', 1, '惠普', 100, 3905.00, NULL, '银色，指纹传感器14-ce3010ng Intel UHD Grafik mit Fingerabdrucksensor 256GB SSD + 16GB Intel Optane', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100051, '全新 2020 HP 15.6 英寸高清触摸屏笔记本电脑', 1, '惠普', 100, 6156.00, NULL, '英特尔酷睿 i7-1065G7 8GB DDR4 RAM 512GB SSD HDMI 802.11b/g/n/ac Windows 10 银色 15-dy1771ms', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100052, 'HP X360 2019 Gemcut 笔记本电脑', 1, '惠普', 100, 10781.00, NULL, ' i7，16 GB RAM，512GB SSD，Windows 10，HDMI，USB C，触摸屏，B&O 扬声器，3 年 Mcafee 互联网*13TGEMCUT 1TB SSD | 16GB RAM | WINPRO', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100053, 'HP 惠普 Envy 17-cg0278ng 白色笔记本电脑', 1, '惠普', 100, 10424.00, NULL, '43.9厘米（17.3英寸）3840 x 2160 像素 英特尔® 酷睿TM i7 16 GB DDR4-SDRAM 1000 GB SSD NVIDIA GeForce MX330 Wi-Fi 6（802.11ax）Win 10 H', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100054, 'HP 惠普 Envy 17-cg0004ng 银色笔记本电脑', 1, '惠普', 100, 8468.00, NULL, '43.9厘米（17.3英寸）1920 x 1080 像素 英特尔®酷睿TM i7 16 GB DDR4-SDRAM 512 GB SSD NVIDIA GeForce MX330 Wi-Fi 6（802.11ax）Win 10 H', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100055, 'HP 惠普 EliteBook x360', 1, '惠普', 100, 11222.00, NULL, '1040 G5 Intel i7-8550U 35.6 厘米 14\" FHD BV UWVA AG 16GB 512GB/SSD UMA W10P', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100056, 'HP 惠普 250 G7 (15.6 英寸 / HD) 商务笔记本电脑', 1, '惠普', 100, 2796.00, NULL, '（英特尔奔腾 4417U，8 GB DDR4 内存，512 GB SDD，英特尔高清显卡，DVD刻录机，Windows 10 家庭版）银色', 1, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100057, 'HP 惠普 250 G7（15.6英寸 / FHD）商务笔记本电脑', 1, '惠普', 100, 3122.00, NULL, '英特尔酷睿i38130U，8GB DDR4 内存，128GB SDD，1TB 硬盘，英特尔高清显卡，DVD刻录机，Windows 10家庭版）银色', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100058, '	HP 惠普 14s-dq1014ns 14 英寸 FHD 笔记本电脑', 1, '惠普', 100, 3870.00, NULL, '英特尔酷睿 i7-1065G7，8 GB 内存，512 GB 固态硬盘，集成显卡，无操作系统） 灰色 – 西班牙 QWERTY 键盘', 0, 1, 1, 0);
+INSERT INTO `goods` VALUES (100059, 'HP 惠普 Probook 470 G7 ( 17.3 英寸 / FHD ) 商务笔记本电脑', 1, '惠普', 100, 6552.00, NULL, '英特尔酷睿 i7-10510U，16GB DDR4 内存，256GB 固态硬盘，1TB 硬盘，英特尔超高清显卡620，Windows 10 Pro）银色', 0, NULL, 1, 0);
+INSERT INTO `goods` VALUES (100060, 'HP 惠普 Probook 470 G7 ( 17.3 英寸 / FHD ) 商务笔记本电脑', 1, '惠普', 100, 6093.00, NULL, '英特尔i7-10510U , 8GB DDR4 内存 , 512GB 固态硬盘 , 1TB 硬盘 , 英特尔超高清显卡 620，Windows 10 Pro ) 银色', 1, 1, 1, 0);
+INSERT INTO `goods` VALUES (100061, '华为 HUAWEI nova 7 Pro', 3, '华为', 100, 3699.00, 0.00, '3200万追焦双摄 50倍潜望式变焦四摄 5G SoC芯片 8GB+128GB 7号色全网通5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100062, '华为 HUAWEI P40', 3, '华为', 100, 4188.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡三摄 30倍数字变焦 6GB+128GB亮黑色全网通5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100063, '华为 HUAWEI P40 Pro', 3, '华为', 100, 6488.00, 0.00, '麒麟990 5G SoC芯片 5000万超感知徕卡四摄 50倍数字变焦 8GB+256GB亮黑色全网通5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100064, '华为 HUAWEI nova 7 SE 5G', 3, '华为', 100, 2399.00, 0.00, '麒麟820 5G SoC芯片 6400万高清AI四摄 40W超级快充 8GB+128GB 幻夜黑全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100065, '华为 HUAWEI Mate 30 5G', 3, '华为', 100, 4499.00, 0.00, '麒麟990 4000万超感光徕卡影像双超级快充8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100066, '华为 HUAWEI Mate 30 Pro 5G', 3, '华为', 100, 5899.00, 0.00, '麒麟990 OLED环幕屏双4000万徕卡电影四摄8GB+128GB亮黑色5G全网通游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100067, '小米10', 3, '小米', 100, 4299.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 对称式立体声 8GB+256GB 冰海蓝 拍照智能游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100068, 'Redmi K30 Pro 5G先锋', 3, '小米 红米', 100, 3399.00, 0.00, '骁龙865旗舰处理器 弹出式超光感全面屏 索尼6400万高清四摄 4700mAh长续航 33W闪充 8GB+128GB 天际蓝 游戏智能手机 小米 红米', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100069, 'Redmi Note8', 3, '小米 红米', 100, 899.00, 0.00, '4800万全场景四摄 4000mAh长续航 高通骁龙665 18W快充 4GB+64GB 梦幻蓝 游戏手机 小米 红米', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100070, '小米10青春版', 3, '小米', 100, 2499.00, 0.00, '双模5G 骁龙765G 50倍潜望式变焦四摄 8GB+128GB 蓝莓薄荷游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100071, '小米10 Pro', 3, '小米', 100, 4999.00, 0.00, '双模5G 骁龙865 1亿像素8K电影相机 50倍变焦 50W快充 8GB+256GB 珍珠白 拍照智能游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100072, 'Apple iPhone SE (A2298)', 3, 'Apple', 100, 3799.00, 0.00, '128GB 黑色 移动联通电信4G手机', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100073, 'Apple iPhone XR (A2108)', 3, 'Apple', 100, 4299.00, 0.00, '64GB 黄色 移动联通电信4G手机 双卡双待', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100074, 'Apple iPhone XS Max (A2104)', 3, 'Apple', 100, 6099.00, 0.00, '64GB 银色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100075, 'Apple iPhone 11 (A2223)', 3, 'Apple', 100, 5499.00, 0.00, '64GB 紫色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100076, 'Apple iPhone 11 Pro (A2217)', 3, 'Apple', 100, 8699.00, 0.00, '64GB 金色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100077, 'Apple iPhone 11 Pro Max (A2220)', 3, 'Apple', 100, 9599.00, 0.00, '64GB 深空灰色 移动联通电信4G手机 双卡双待', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100078, '一加 OnePlus 8', 3, '一加', 100, 4599.00, 0.00, '5G旗舰 90Hz高清柔性屏 骁龙865 180g轻薄手感 12GB+256GB 黑镜 超清超广角拍照游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100079, '一加 OnePlus 8 Pro', 3, '一加', 100, 5999.00, 0.00, '5G旗舰 2K+120Hz 柔性屏 30W无线闪充 骁龙865 12GB+256GB 青空 超清超广角拍照游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100080, '一加 OnePlus 7T', 3, '一加', 100, 3199.00, 0.00, '90Hz流体屏 骁龙855Plus旗舰 4800万超广角三摄  8GB+256GB 冰际蓝 游戏手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100081, 'vivo X30 Pro 5G', 3, 'vivo', 100, 3698.00, 0.00, '秘银 8GB+128GB 双模5G 60倍变焦 50mm专业人像镜头 全网通智慧旗舰手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100082, 'vivo S6 5G手机', 3, 'vivo', 100, 2698.00, 0.00, '8GB+128GB 天鹅湖 前置3200万超清夜景自拍 4500mAh大电池 后置四摄 双模5G全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100083, 'vivo NEX 3S', 3, 'vivo', 100, 5298.00, 0.00, '5G 12GB+256GB 深空流光 骁龙865 无界瀑布屏 6400万超高像素 双模5G全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100084, 'vivo iQOO Neo3 5G', 3, 'vivo', 100, 2998.00, 0.00, '8GB+128GB 夜幕黑 高通骁龙865 144Hz竞速屏 立体双扬 44W闪充 双模5G全网通手机', 1, 0, 1, 0);
+INSERT INTO `goods` VALUES (100085, 'vivo iQOO 3 5G', 3, 'vivo', 100, 3998.00, 0.00, '12GB+128GB 驭影黑 高通骁龙865 55W超快闪充 专业电竞游戏体验手机 双模5G全网通手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100086, 'OPPO Ace2 8+128', 3, 'oppo', 100, 3999.00, 0.00, '月岩灰双模5G 185g超薄机身 65W超级闪充 40W无线闪充 90Hz电竞屏高通骁龙865游戏智能手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100087, 'OPPO Find X2', 3, 'oppo', 100, 5499.00, 0.00, '超感官旗舰 3K分辨率 120Hz超感屏 多焦段影像系统 骁龙865 65w闪充 8GB+128GB碧波 双模5G手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100088, 'OPPO Reno3 Pro', 3, 'oppo', 100, 3699.00, 0.00, '双模5G 视频双防抖 90HZ高感曲面屏 7.7mm轻薄机身 8GB+128GB 日出印象 拍照游戏视频手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100089, 'OPPO Reno3', 3, 'oppo', 100, 2999.00, 0.00, '双模5G 6400万超清四摄 视频双防抖 7.96mm纤薄机身 8GB+128GB 蓝色星夜全网通拍照游戏视频手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100090, 'OPPO A91', 3, 'oppo', 100, 1799.00, 0.00, '8GB+128GB 暗夜星辰 4800万超清四摄 VOOC闪充3.0 光感屏幕指纹 全网通4G 全面屏拍照游戏智能手机', 0, 0, 1, 0);
+INSERT INTO `goods` VALUES (100091, 'OPPO Reno2 Z', 3, 'oppo', 100, 2299.00, 0.00, '8G+128G 深海夜光 4800万夜拍四摄 VOOC闪充 炫彩升降 全网通4G 全面屏拍照游戏智能手机', 0, 0, 1, 0);
 
 -- ----------------------------
 -- Table structure for img
@@ -195,7 +200,9 @@ CREATE TABLE `img`  (
   `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片地址',
   `goods_id` int(10) NULL DEFAULT NULL COMMENT '商品id',
   `display` tinyint(1) NULL DEFAULT 1 COMMENT '是否显示，1显示，0不显示',
-  PRIMARY KEY (`img_id`) USING BTREE
+  PRIMARY KEY (`img_id`) USING BTREE,
+  INDEX `goods_id`(`goods_id`) USING BTREE,
+  CONSTRAINT `goods_id` FOREIGN KEY (`goods_id`) REFERENCES `goods` (`goods_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -298,17 +305,21 @@ INSERT INTO `img` VALUES (91, 'f4b0dc1355ba8ae1.jpg', 100091, 1);
 -- ----------------------------
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders`  (
-  `orders_id` int(10) NOT NULL COMMENT '订单Id',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `orders_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单Id',
   `orders_price` decimal(10, 2) NOT NULL COMMENT '订单总金额',
-  `goods_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '产品id，有多个逗号分隔',
-  `goods_count` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '产品数量，有多个逗号分隔',
+  `goods_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '产品id',
+  `goods_count` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '产品数量',
   `user_id` int(11) NOT NULL COMMENT '用户Id',
   `is_pay` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否已支付，0未，1已，下面同',
   `is_send` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否发送',
   `is_receive` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否收到',
   `is_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否放入回收站',
-  PRIMARY KEY (`orders_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  `add_id` int(11) NOT NULL,
+  `create_time` datetime(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000' ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
