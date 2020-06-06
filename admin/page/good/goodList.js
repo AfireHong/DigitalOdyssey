@@ -120,7 +120,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
             data = obj.data;
 
         if (layEvent === 'edit') { //编辑
-            addUser(data);
+            addGood(data);
         } else if (layEvent === 'del') { //删除
             layer.confirm('确定删除此商品？' + data.goods_name, {
                 icon: 3,
@@ -144,7 +144,7 @@ layui.use(['form', 'layer', 'table', 'laytpl'], function () {
 
     function addGood(edit) {
         var index = layui.layer.open({
-            title: "添加商品",
+            title: "修改商品",
             type: 2,
             content: "addGood.html",
             success: function (layero, index) {

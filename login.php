@@ -26,7 +26,7 @@
         $(document).ready(function () {
             $('#sub-btn').click(function () {
                 layui.use('layer', function () {
-                    var notRobot = 0;
+                    var notRobot = 1;
                     var layer = layui.layer;
 					var telephone = $("#tel").val();
                     var password = $("#password").val();

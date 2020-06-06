@@ -114,7 +114,7 @@
  * @param {$bool}  status   状态
  * @return: bool
  */
-    function switchStatus($mysqliObject,$type, $status, $good_id){
+    function switchStatus($mysqliObject, $type, $status, $good_id){
         $sql = 'UPDATE goods SET '. $type .' = ? WHERE goods_id = ?';
         $stmt = $mysqliObject->init();
         if ($status) {

@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 09/05/2020 18:55:17
+ Date: 06/06/2020 20:31:38
 */
 
 SET NAMES utf8mb4;
@@ -22,31 +22,43 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address`  (
-  `add_id` int(11) NOT NULL COMMENT '地址id',
+  `add_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '地址id',
   `user_id` int(11) NOT NULL COMMENT '用户id',
-  `address` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '地址',
-  `receiver` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '收件人',
-  `tel` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '电话',
-  `post` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '邮编',
-  PRIMARY KEY (`add_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '地址',
+  `receiver` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收件人',
+  `tel` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '电话',
+  `post` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮编',
+  PRIMARY KEY (`add_id`) USING BTREE,
+  INDEX `user_id1`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for admin
+-- ----------------------------
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin`  (
+  `admin_id` int(11) NOT NULL,
+  `admin` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`admin_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for cate
 -- ----------------------------
 DROP TABLE IF EXISTS `cate`;
 CREATE TABLE `cate`  (
-  `cate_id` int(11) NOT NULL COMMENT '分类id',
+  `cate_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '分类id',
   `cate_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '分类名',
   PRIMARY KEY (`cate_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for goods
 -- ----------------------------
 DROP TABLE IF EXISTS `goods`;
 CREATE TABLE `goods`  (
-  `goods_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '商品id',
+  `goods_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '商品id',
   `goods_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '商品名',
   `cate_id` int(10) NULL DEFAULT NULL COMMENT '分类id',
   `brand` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '品牌',
@@ -58,8 +70,10 @@ CREATE TABLE `goods`  (
   `is_rec` tinyint(1) NULL DEFAULT 0 COMMENT '是否推荐 0否 1是',
   `is_up` tinyint(1) NULL DEFAULT 1 COMMENT '是否上架 0否 1是',
   `status` tinyint(1) NULL DEFAULT 0 COMMENT '是否放入回收站 0否 1是',
-  PRIMARY KEY (`goods_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100092 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`goods_id`) USING BTREE,
+  INDEX `cate`(`cate_id`) USING BTREE,
+  CONSTRAINT `cate` FOREIGN KEY (`cate_id`) REFERENCES `cate` (`cate_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 100092 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for img
@@ -70,25 +84,31 @@ CREATE TABLE `img`  (
   `img_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '图片地址',
   `goods_id` int(10) NULL DEFAULT NULL COMMENT '商品id',
   `display` tinyint(1) NULL DEFAULT 1 COMMENT '是否显示，1显示，0不显示',
-  PRIMARY KEY (`img_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`img_id`) USING BTREE,
+  INDEX `goods_id`(`goods_id`) USING BTREE,
+  CONSTRAINT `goods_id` FOREIGN KEY (`goods_id`) REFERENCES `goods` (`goods_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for orders
 -- ----------------------------
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders`  (
-  `orders_id` int(10) NOT NULL COMMENT '订单Id',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `orders_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单Id',
   `orders_price` decimal(10, 2) NOT NULL COMMENT '订单总金额',
-  `goods_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '产品id，有多个逗号分隔',
-  `goods_count` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '产品数量，有多个逗号分隔',
+  `goods_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '产品id',
+  `goods_count` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '产品数量',
   `user_id` int(11) NOT NULL COMMENT '用户Id',
   `is_pay` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否已支付，0未，1已，下面同',
   `is_send` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否发送',
   `is_receive` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否收到',
   `is_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '是否放入回收站',
-  PRIMARY KEY (`orders_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  `add_id` int(11) NOT NULL,
+  `create_time` datetime(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000' ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for users
@@ -96,15 +116,17 @@ CREATE TABLE `orders`  (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
   `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
-  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '用户名',
-  `password` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '密码',
-  `tel` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '电话',
-  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
+  `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `tel` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '电话',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
   `sex` tinyint(1) NULL DEFAULT 0 COMMENT '性别 0保密 1男 2女',
   `age` int(3) NULL DEFAULT 0 COMMENT '年龄',
   `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 1 COMMENT '状态 1为正常 0被禁',
   `power` tinyint(1) NOT NULL DEFAULT 0 COMMENT '权力 0普通用户 1管理员',
-  PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100005 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  `last_login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`) USING BTREE,
+  UNIQUE INDEX `tel`(`tel`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 100010 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

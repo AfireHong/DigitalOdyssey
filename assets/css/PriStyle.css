@@ -189,3 +189,12 @@
 .clean-block.clean-cart .items .product .product-image{
 	border: none;
 }
+#add-address-box{
+	padding: 40px;
+}
+.clean-block.payment-form .products .item p{
+	padding-right: 150px;
+}
+.clean-block.payment-form .products .item {
+	margin-bottom: 3em;
+}
