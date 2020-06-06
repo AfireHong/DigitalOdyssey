@@ -1,8 +1,8 @@
 <?php
 /*
- * @Author: your name
+ * @Author: Afirehong 彭迈宏
  * @Date: 2020-05-12 16:48:37
- * @LastEditTime: 2020-05-31 11:29:37
+ * @LastEditTime: 2020-05-31 11:46:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Javascriptd:\wwwroot\OnlineShoppingSystem\deal_cart.php
