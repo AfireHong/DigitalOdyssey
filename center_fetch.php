@@ -2,7 +2,7 @@
 /*
  * @Author: your name
  * @Date: 2020-05-06 15:24:22
- * @LastEditTime: 2020-06-06 17:18:59
+ * @LastEditTime: 2020-06-06 23:03:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Javascriptd:\wwwroot\OnlineShoppingSystem\center_fetch.php
@@ -44,6 +44,21 @@
                     echo json_encode($data);
                 }
             break;
+        case 'getOrders':
+            $sql = "SELECT * FROM orders WHERE user_id ='{$_SESSION['uid']}' GROUP BY orders_id";
+            $result = $mySQLi->query($sql);
+            if ($result) {
+                $list = $result->fetch_all(MYSQLI_ASSOC);
+                $data['code'] = 0;
+                $data['msg'] = '成功！';
+                $data['data'] = $list;
+                echo json_encode($data);
+            } else {
+                $data['code'] = -1;
+                $data['msg'] = '获取失败';
+                echo json_encode($data);
+            }
+        break;
         default:
             # code...
             break;

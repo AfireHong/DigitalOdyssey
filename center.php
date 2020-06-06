@@ -72,7 +72,24 @@ $rec_res = $mySQLi->query($sql_rec);
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="accordion" id="orderItem">
+                    <div class="card">
+                        <div class="card-header" id="headingTne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                    我的订单
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTne" data-parent="#orderItem">
+                            <div class="card-body">
+                                <ul class="list-group" id="orders-list">
+                                    <li class="list-group-item">暂无</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -163,13 +180,42 @@ $rec_res = $mySQLi->query($sql_rec);
                     var str = '';
                     if (addressInfo.length == 0) {
                         $("#address-list").html('<li class="list-group-item">暂无，快去添加地址吧！</li>');
-                    }else{
+                    } else {
                         for (var i = 0; i < addressInfo.length; i++) {
-                        str += '<li class="list-group-item">收件人：' + addressInfo[i].receiver + ' | 收件地址：' + addressInfo[i].address + ' | 手机号：' + addressInfo[i].tel + ' | 邮编：' + addressInfo[i].post + '</li>';
-                    }
+                            str += '<li class="list-group-item">收件人：' + addressInfo[i].receiver +
+                                ' | 收件地址：' + addressInfo[i].address +
+                                ' | 手机号：' + addressInfo[i].tel +
+                                ' | 邮编：' + addressInfo[i].post + '<button class="btn btn-danger btn-sm del-address" >删除地址</button></li>';
+                        }
                         $("#address-list").html(str);
                     }
-                    
+
+                }
+            }
+        })
+    }
+
+    function getorders() {
+        $.ajax({
+            type: "POST",
+            url: "center_fetch.php?op=getOrders",
+            success: function(data) {
+                console.log(data);
+                data = JSON.parse(data);
+                if (data.code == 0) {
+                    var orderInfo = data.data;
+                    $("#orders-list").html('<li class="list-group-item">暂无</li>');
+                    //console.log(addressInfo.length);
+                    var str = '';
+                    if (orderInfo.length == 0) {
+                        $("#orders-list").html('<li class="list-group-item">暂无，快去添加地址吧！</li>');
+                    } else {
+                        for (var i = 0; i < orderInfo.length; i++) {
+                            str += '<li class="list-group-item">' + orderInfo[i].orders_id + '..................等待开发</li>';
+                        }
+                        $("#orders-list").html(str);
+                    }
+
                 }
             }
         })
@@ -217,6 +263,7 @@ $rec_res = $mySQLi->query($sql_rec);
                 }
             });
             getAddress();
+            getorders();
             layui.use(['form', 'layer'], function() {
                 $("#add-address").click(function() {
                     var index = layer.open({

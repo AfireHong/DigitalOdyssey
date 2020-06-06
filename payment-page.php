@@ -112,9 +112,13 @@ $address = $result->fetch_all(MYSQLI_ASSOC);
                                 if (res.code == 0) {
                                     layer.open({
                                         title: '下单成功！',
-                                        content: '您的订单号是' + res.od_id
+                                        content: '您的订单号是' + res.od_id,
+                                        btn: '我知道了',
+                                        yes:function(){
+                                            window.location.href = "center.php";
+                                        }
                                     })
-                                    layer.close(index);
+                                    
                                 }
                             }
                         })

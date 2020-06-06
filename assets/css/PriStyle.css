@@ -198,3 +198,6 @@
 .clean-block.payment-form .products .item {
 	margin-bottom: 3em;
 }
+.del-address{
+	float: right;
+}
